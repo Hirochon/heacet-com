@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  gatsby:
+    build: ./
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./:/gatsby
+    environment:
+      - NODE_ENV=development
+    ports:
+      - 3000:3000
