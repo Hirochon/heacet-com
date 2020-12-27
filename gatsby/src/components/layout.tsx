@@ -1,7 +1,15 @@
-import React from "react"
-import { Link } from "gatsby"
+import React, { FC } from "react";
+import { Link, PageProps } from "gatsby";
+import { WindowLocation } from "@reach/router";
 
-const Layout = ({ location, title, children }) => {
+
+type Props = {
+  title: string
+  location: WindowLocation<unknown>
+}
+
+const Layout: FC<Props> = ({ location, title, children }) => {
+  //@ts-ignore ↓これが何なのかを判別できてない
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
