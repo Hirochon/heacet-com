@@ -12,8 +12,8 @@ const Layout: FC<Props> = ({ location, title, children }) => {
   //@ts-ignore ↓これが何なのかを判別できてない
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
-  let header
 
+  let header
   if (isRootPath) {
     header = (
       <h1 className="main-heading">
@@ -22,9 +22,9 @@ const Layout: FC<Props> = ({ location, title, children }) => {
     )
   } else {
     header = (
-      <Link className="header-link-home" to="/">
-        {title}
-      </Link>
+      <div className="main-heading">
+        <Link to="/">{title}</Link>
+      </div>
     )
   }
 
