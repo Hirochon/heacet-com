@@ -12,7 +12,7 @@ import Image from "gatsby-image";
 const Bio = () => {
   const data = useStaticQuery<GatsbyTypes.BioQueryQuery>(graphql`
     query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      avatar: file(absolutePath: { regex: "/profile-picture.jpg/" }) {
         childImageSharp {
           fixed(width: 50, height: 50, quality: 95) {
             ...GatsbyImageSharpFixed
@@ -44,7 +44,7 @@ const Bio = () => {
       {avatar && (
         <Image
           fixed={avatar}
-          alt={author?.name || ``}
+          alt={author?.name!}
           className="bio-avatar"
           imgStyle={{
             borderRadius: `50%`,
@@ -53,8 +53,10 @@ const Bio = () => {
       )}
       {author?.name && (
         <p>
-          Written by <strong>{author.name}</strong> {author?.summary || null}
-          {` `}
+          Written by <strong>{author.name}</strong>
+          <br/>
+          {author?.summary || null}
+          <br/>
           <a href={`https://twitter.com/${social?.twitter || ``}`}>
             You should follow them on Twitter
           </a>
