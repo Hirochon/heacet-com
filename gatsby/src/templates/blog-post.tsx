@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 
 const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({ data, location }) => {
   const post = data.markdownRemark
-  const siteTitle = data.site?.siteMetadata?.title || `Title`
+  const siteTitle = data.site?.siteMetadata?.title!
   const { previous, next } = data
 
   return (

@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `heacet.netlify.com`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `ひろち | hirochi`,
+      summary: `サービス開発とデータサイエンスをしてます`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    description: `サービス開発、データサイエンス、趣味などを使ったクリエイティブなコンテンツが見れます。このサイトが人生を変えるキッカケの一つになれたら、めっちゃ喜びます。`,
+    siteUrl: `https://heacet.netlify.app/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `heacet43`,
     },
   },
   plugins: [
@@ -60,8 +60,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `heacet.netlify.com`,
+        short_name: `heacet`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
