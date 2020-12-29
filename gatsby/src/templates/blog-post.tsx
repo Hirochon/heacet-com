@@ -15,6 +15,7 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({ data
       <SEO
         title={post!.frontmatter?.title!}
         description={post!.frontmatter?.description || post!.excerpt}
+        keywords={post!.frontmatter?.keywords}
       />
       <article
         className="blog-post"
@@ -85,6 +86,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        keywords
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

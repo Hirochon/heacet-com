@@ -15,9 +15,10 @@ type Props = {
   lang?: string;
   meta?: HTMLMetaElement[];
   title: string;
+  keywords?: GatsbyTypes.Frontmatter["keywords"];
 }
 
-const SEO: FC<Props> = ({ description, lang, meta, title }) => {
+const SEO: FC<Props> = ({ description, lang, meta, title, keywords }) => {
   const { site } = useStaticQuery<GatsbyTypes.SeoQuery>(
     graphql`
       query Seo {
@@ -48,6 +49,10 @@ const SEO: FC<Props> = ({ description, lang, meta, title }) => {
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: "keywords",
+          content: keywords?.join(","),
         },
         {
           property: `og:title`,
