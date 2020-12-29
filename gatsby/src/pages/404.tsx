@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { graphql, PageProps } from "gatsby";
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Layout from "../organisms/Layout/layout";
+import SEO from "../organisms/Seo/seo";
 
 const NotFoundPage: FC<PageProps<GatsbyTypes.Page404Query>> = ({ data, location }) => {
   const siteTitle = data.site!.siteMetadata!.title!
