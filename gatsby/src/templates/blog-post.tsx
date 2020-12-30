@@ -9,9 +9,10 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({ data
   const post = data.markdownRemark
   const siteTitle = data.site?.siteMetadata?.title!
   const { previous, next } = data
+  const siteLogo = data.siteLogo
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={siteTitle} siteLogo={siteLogo}>
       <SEO
         title={post!.frontmatter?.title!}
         description={post!.frontmatter?.description || post!.excerpt}
@@ -73,6 +74,13 @@ export const pageQuery = graphql`
     $previousPostId: String
     $nextPostId: String
   ) {
+    siteLogo: file(absolutePath: { regex: "/heacet.com-logo.png/" }) {
+      childImageSharp {
+        fixed(height: 40, quality: 95) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
     site {
       siteMetadata {
         title

@@ -28,6 +28,11 @@
     }
 
     .header-right {
+      // opacity: 0;
+      // animation: fadein 1.5s cubic-bezier(1,0,1,0) forwards;
+      // @keyframes fadein {
+      //   100% { opacity: 1; }
+      // }
       color: $main-color;
       display: flex;
       flex-direction: row;

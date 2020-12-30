@@ -18,21 +18,21 @@ const Header: FC<Props> = ({isRootPath, title, siteLogo}) => {
 
   const headerLink = (
     <Link to="/">
-      {siteLogo ? (
+      {siteLogo ? 
         <Image
           fixed={logo}
           alt={title}
           className="site-logo"
         />
-      ): title}
+      : {title}}
     </Link>
   )
 
   const headerTitle = (
     isRootPath ?
       <h1>{headerLink}</h1>
-      : {headerLink}
-    )
+      : <div>{headerLink}</div>
+  )
 
   return (
     <div className="global-header">
@@ -41,27 +41,27 @@ const Header: FC<Props> = ({isRootPath, title, siteLogo}) => {
           {headerTitle}
         </div>
         <div className="header-right">
-            <div className="header-right-icon">
-              <a href="https://twitter/heacet43">
-                <div className="font-size">
-                  <FontAwesomeIcon icon={faTwitterSquare} size="2x" />
-                </div>
-              </a>
-            </div>
-            <div className="header-right-icon">
-              <a id="r" href="https://github.com/Hirochon">
-                <div className="font-size">
-                  <FontAwesomeIcon icon={faGithub} size="2x" />
-                </div>
-              </a>
-            </div>
-            <div className="header-right-bar">
-              <a href="">
-                <div className="font-size">
-                  <FontAwesomeIcon icon={faBars} size="2x" />
-                </div>
-              </a>
-            </div>
+          <div className="header-right-icon">
+            <a href="https://twitter/heacet43">
+              <div className="font-size">
+                <FontAwesomeIcon icon={faTwitterSquare} size="2x" />
+              </div>
+            </a>
+          </div>
+          <div className="header-right-icon">
+            <a id="r" href="https://github.com/Hirochon">
+              <div className="font-size">
+                <FontAwesomeIcon icon={faGithub} size="2x" />
+              </div>
+            </a>
+          </div>
+          <div className="header-right-bar">
+            <a href="">
+              <div className="font-size">
+                <FontAwesomeIcon icon={faBars} size="2x" />
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </div> 
