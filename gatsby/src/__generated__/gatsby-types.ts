@@ -2597,6 +2597,15 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___crossOrigin = 'pluginCreator.pluginOptions.crossOrigin',
   pluginCreator___pluginOptions___include_favicon = 'pluginCreator.pluginOptions.include_favicon',
   pluginCreator___pluginOptions___cacheDigest = 'pluginCreator.pluginOptions.cacheDigest',
+  pluginCreator___pluginOptions___indentedSyntax = 'pluginCreator.pluginOptions.indentedSyntax',
+  pluginCreator___pluginOptions___indentType = 'pluginCreator.pluginOptions.indentType',
+  pluginCreator___pluginOptions___indentWidth = 'pluginCreator.pluginOptions.indentWidth',
+  pluginCreator___pluginOptions___linefeed = 'pluginCreator.pluginOptions.linefeed',
+  pluginCreator___pluginOptions___omitSourceMapUrl = 'pluginCreator.pluginOptions.omitSourceMapUrl',
+  pluginCreator___pluginOptions___precision = 'pluginCreator.pluginOptions.precision',
+  pluginCreator___pluginOptions___sourceComments = 'pluginCreator.pluginOptions.sourceComments',
+  pluginCreator___pluginOptions___sourceMapContents = 'pluginCreator.pluginOptions.sourceMapContents',
+  pluginCreator___pluginOptions___sourceMapEmbed = 'pluginCreator.pluginOptions.sourceMapEmbed',
   pluginCreator___pluginOptions___pathCheck = 'pluginCreator.pluginOptions.pathCheck',
   pluginCreator___pluginOptions___allExtensions = 'pluginCreator.pluginOptions.allExtensions',
   pluginCreator___pluginOptions___isTSX = 'pluginCreator.pluginOptions.isTSX',
@@ -2844,6 +2853,15 @@ enum SitePluginFieldsEnum {
   pluginOptions___crossOrigin = 'pluginOptions.crossOrigin',
   pluginOptions___include_favicon = 'pluginOptions.include_favicon',
   pluginOptions___cacheDigest = 'pluginOptions.cacheDigest',
+  pluginOptions___indentedSyntax = 'pluginOptions.indentedSyntax',
+  pluginOptions___indentType = 'pluginOptions.indentType',
+  pluginOptions___indentWidth = 'pluginOptions.indentWidth',
+  pluginOptions___linefeed = 'pluginOptions.linefeed',
+  pluginOptions___omitSourceMapUrl = 'pluginOptions.omitSourceMapUrl',
+  pluginOptions___precision = 'pluginOptions.precision',
+  pluginOptions___sourceComments = 'pluginOptions.sourceComments',
+  pluginOptions___sourceMapContents = 'pluginOptions.sourceMapContents',
+  pluginOptions___sourceMapEmbed = 'pluginOptions.sourceMapEmbed',
   pluginOptions___pathCheck = 'pluginOptions.pathCheck',
   pluginOptions___allExtensions = 'pluginOptions.allExtensions',
   pluginOptions___isTSX = 'pluginOptions.isTSX',
@@ -2997,6 +3015,15 @@ type SitePluginPluginOptions = {
   readonly crossOrigin: Maybe<Scalars['String']>;
   readonly include_favicon: Maybe<Scalars['Boolean']>;
   readonly cacheDigest: Maybe<Scalars['String']>;
+  readonly indentedSyntax: Maybe<Scalars['Boolean']>;
+  readonly indentType: Maybe<Scalars['String']>;
+  readonly indentWidth: Maybe<Scalars['Int']>;
+  readonly linefeed: Maybe<Scalars['String']>;
+  readonly omitSourceMapUrl: Maybe<Scalars['Boolean']>;
+  readonly precision: Maybe<Scalars['Int']>;
+  readonly sourceComments: Maybe<Scalars['Boolean']>;
+  readonly sourceMapContents: Maybe<Scalars['Boolean']>;
+  readonly sourceMapEmbed: Maybe<Scalars['Boolean']>;
   readonly pathCheck: Maybe<Scalars['Boolean']>;
   readonly allExtensions: Maybe<Scalars['Boolean']>;
   readonly isTSX: Maybe<Scalars['Boolean']>;
@@ -3040,6 +3067,15 @@ type SitePluginPluginOptionsFilterInput = {
   readonly crossOrigin: Maybe<StringQueryOperatorInput>;
   readonly include_favicon: Maybe<BooleanQueryOperatorInput>;
   readonly cacheDigest: Maybe<StringQueryOperatorInput>;
+  readonly indentedSyntax: Maybe<BooleanQueryOperatorInput>;
+  readonly indentType: Maybe<StringQueryOperatorInput>;
+  readonly indentWidth: Maybe<IntQueryOperatorInput>;
+  readonly linefeed: Maybe<StringQueryOperatorInput>;
+  readonly omitSourceMapUrl: Maybe<BooleanQueryOperatorInput>;
+  readonly precision: Maybe<IntQueryOperatorInput>;
+  readonly sourceComments: Maybe<BooleanQueryOperatorInput>;
+  readonly sourceMapContents: Maybe<BooleanQueryOperatorInput>;
+  readonly sourceMapEmbed: Maybe<BooleanQueryOperatorInput>;
   readonly pathCheck: Maybe<BooleanQueryOperatorInput>;
   readonly allExtensions: Maybe<BooleanQueryOperatorInput>;
   readonly isTSX: Maybe<BooleanQueryOperatorInput>;
@@ -3177,6 +3213,11 @@ type BlogPostBySlugQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe
     & { readonly frontmatter: Maybe<Pick<Frontmatter, 'title' | 'date' | 'description' | 'keywords' | 'tags'>> }
   )>, readonly previous: Maybe<{ readonly fields: Maybe<Pick<Fields, 'slug'>>, readonly frontmatter: Maybe<Pick<Frontmatter, 'title'>> }>, readonly next: Maybe<{ readonly fields: Maybe<Pick<Fields, 'slug'>>, readonly frontmatter: Maybe<Pick<Frontmatter, 'title'>> }> };
 
+type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
+
 type Page404QueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3189,11 +3230,6 @@ type BlogIndexQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick
       Pick<MarkdownRemark, 'excerpt'>
       & { readonly fields: Maybe<Pick<Fields, 'slug'>>, readonly frontmatter: Maybe<Pick<Frontmatter, 'date' | 'title' | 'description' | 'tags'>> }
     )> } };
-
-type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
 type BioQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3257,10 +3293,5 @@ type GatsbyImageSharpSizes_withWebp_tracedSVGFragment = Pick<ImageSharpSizes, 't
 type GatsbyImageSharpSizes_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpSizes_withWebp_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type heacetComgatsbysrcpagesusingTypescriptTsx2907560070QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type heacetComgatsbysrcpagesusingTypescriptTsx2907560070Query = { readonly site: Maybe<Pick<Site, 'buildTime'>> };
 
 }
