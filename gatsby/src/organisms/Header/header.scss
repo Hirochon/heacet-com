@@ -2,12 +2,76 @@
 
 
 .global-header {
-  height: 50px;
+  height: 60px;
+  position: relative;
+  box-shadow: 0.5px 0.1px 5px $gray;
 
   .header-container {
     width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
+    height: 100%;
+
+    .header-left {
+      width: 100%;
+      display: flex;
+      padding-right: auto;
+
+      h1 {
+        display: flex;
+        a {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+
+    .header-right {
+      color: $main-color;
+      display: flex;
+      flex-direction: row;
+
+      .header-right-icon {
+        display: flex;
+        a {
+          margin: auto 0;
+          display: flex;
+          align-items: center;
+          padding: 0 20px;
+
+          .font-size {
+            font-size: 13px;
+          }
+        }
+        #r {
+          border-left: solid 0.5px $gray-hover;
+        }
+      }
+
+      .header-right-bar {
+        margin-left: 5px;
+        border-left: solid 0.5px $gray-hover;
+        border-right: solid 0.5px $gray-hover;
+        display: flex;
+        a {
+          display: flex;
+          align-items: center;
+          padding: 0 20px;
+
+          .font-size {
+            font-size: 20px;
+          }
+        }
+      }
+
+      a:link, a:visited, a:active {
+        color: $main-color;
+      }
+      a:hover {
+        color: $main-color-hover;
+      }
+      
+    }
   }
 }
