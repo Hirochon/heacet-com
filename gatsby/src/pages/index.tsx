@@ -9,10 +9,11 @@ import SEO from "../organisms/Seo/seo";
 const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({ data, location }) => {
   const siteTitle = data.site?.siteMetadata?.title!
   const posts = data.allMarkdownRemark.nodes
+  const siteLogo = data.siteLogo
 
   if (posts.length === 0) {
     return (
-      <Layout location={location} title={siteTitle}>
+      <Layout location={location} title={siteTitle} siteLogo={siteLogo}>
         <SEO title="All posts" />
         <Bio />
         <p>
@@ -25,13 +26,12 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({ data, location }
   }
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={siteTitle} siteLogo={siteLogo}>
       <SEO title="All posts" />
       <Bio />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter?.title || post.fields?.slug
-
           return (
             <li key={post.fields!.slug!}>
               <article
@@ -68,6 +68,13 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query BlogIndex {
+    siteLogo: file(absolutePath: { regex: "/heacet.com-logo.png/" }) {
+      childImageSharp {
+        fixed(height: 50, quality: 95) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
     site {
       siteMetadata {
         title
