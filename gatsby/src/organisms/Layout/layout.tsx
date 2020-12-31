@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 import { WindowLocation } from "@reach/router";
-import './layout.scss';
+import "./layout.scss";
 import Header from "../Header/header";
+import Footer from "../Footer/footer";
 
 
 type Props = {
@@ -19,11 +20,7 @@ const Layout: FC<Props> = ({ location, title, siteLogo, children }) => {
     <div className="global-wrapper" data-is-root-path={isRootPath}>
       <Header isRootPath={isRootPath} title={title} siteLogo={siteLogo} />
       <main className="global-main">{children}</main>
-      <footer className="global-footer">
-        ©Hirochi {new Date().getFullYear()} All Rights Reserved, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
-      </footer>
+      <Footer />
     </div>
   )
 }

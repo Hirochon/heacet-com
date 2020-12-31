@@ -1,0 +1,14 @@
+@import '../Styles//color.scss';
+
+
+.global-footer {
+  height: 100px;
+  background: $gray;
+  color: $white;
+  text-align: center;
+  line-height: 100px;
+
+  p {
+    font-size: 12px;
+  }
+}
