@@ -31,7 +31,7 @@ const Header: FC<Props> = ({isRootPath, title, siteLogo}) => {
   const headerTitle = (
     isRootPath ?
       <h1>{headerLink}</h1>
-      : <div>{headerLink}</div>
+      : <div className="header-title">{headerLink}</div>
   )
 
   return (

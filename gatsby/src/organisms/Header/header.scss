@@ -26,6 +26,14 @@
           align-items: center;
         }
       }
+
+      .header-title {
+        display: flex;
+        a {
+          display: flex;
+          align-items: center;
+        }
+      }
     }
 
     .header-right {

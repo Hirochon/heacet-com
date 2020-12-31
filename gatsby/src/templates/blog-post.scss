@@ -1,0 +1,12 @@
+@import "../organisms/Styles/color.scss";
+
+.main-contents {
+  display: flex;
+  flex-direction: row;
+
+  .blog-post {
+    width: 750px;
+    background-color: $white;
+    padding: 20px;
+  }
+}
