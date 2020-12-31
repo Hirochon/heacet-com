@@ -5,6 +5,7 @@
   height: 60px;
   position: relative;
   box-shadow: 0.5px 0.1px 5px $gray;
+  background: $white;
 
   .header-container {
     width: 1150px;
@@ -50,14 +51,14 @@
           }
         }
         #r {
-          border-left: solid 0.5px $gray-hover;
+          border-left: solid 0.5px $gray-line;
         }
       }
 
       .header-right-bar {
         margin-left: 5px;
-        border-left: solid 0.5px $gray-hover;
-        border-right: solid 0.5px $gray-hover;
+        border-left: solid 0.5px $gray-line;
+        border-right: solid 0.5px $gray-line;
         display: flex;
         a {
           display: flex;

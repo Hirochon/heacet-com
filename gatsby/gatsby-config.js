@@ -3,7 +3,7 @@ module.exports = {
     title: `heacet.netlify.com`,
     author: {
       name: `ひろち | hirochi`,
-      summary: `サービス開発とデータサイエンスをしてます`,
+      summary: `現在はサービス開発やデータサイエンスなどをしております！`,
     },
     description: `サービス開発、データサイエンス、趣味などを使ったクリエイティブなコンテンツが見れます。このサイトが人生を変えるキッカケの一つになれたら、めっちゃ喜びます。`,
     siteUrl: `https://heacet.netlify.app/`,

@@ -1,0 +1,26 @@
+@import "../Styles/color.scss";
+
+.bio {
+  width: 350px;
+  height: 100%;
+  margin-left: 50px;
+  padding: 30px 0;
+  background-color: $white;
+
+  .bio-image {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .author-name {
+    font-size: 18px;
+  }
+
+  .author-summary {
+    color: $gray;
+  }
+
+  p {
+    text-align: center;
+  }
+}
