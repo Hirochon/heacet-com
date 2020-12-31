@@ -1,5 +1,6 @@
 import React, { FC } from "react";
-import { Link, graphql, PageProps, useStaticQuery } from "gatsby";
+import { Link, graphql, PageProps } from "gatsby";
+import Image from "gatsby-image";
 
 import Bio from "../organisms/Bio/bio";
 import Layout from "../organisms/Layout/layout";
@@ -39,6 +40,15 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({ data, location }
                 itemType="http://schema.org/Article"
               >
                 <header>
+                {post.frontmatter?.thumbnail ? 
+                  <Image
+                    fixed={post.frontmatter?.thumbnail!.childImageSharp?.fixed!}
+                    alt={`${title}-thumbnail`}
+                    className="posted-thumbnail"
+                  />
+                  :
+                  <></>
+                }
                   <h2>
                     <Link to={post.fields!.slug!} itemProp="url">
                       <span itemProp="headline">{title}</span>
