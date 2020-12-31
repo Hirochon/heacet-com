@@ -73,14 +73,39 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 }
 
 exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
+  const { createFieldExtension, createTypes } = actions
 
-  // Explicitly define the siteMetadata {} object
-  // This way those will always be defined even if removed from gatsby-config.js
+  createFieldExtension({
+    name: 'fileByDataPath',
+    extend: () => ({
+      resolve: function (src, args, context, info) {
+        const partialPath = src.thumbnail
+          if (!partialPath) {
+            return null
+          }
 
-  // Also explicitly define the Markdown frontmatter
-  // This way the "MarkdownRemark" queries will return `null` even when no
-  // blog posts are stored inside "content/blog" instead of returning an error
+        const filePath = path.join(__dirname, 'content/blog/', partialPath)
+        const fileNode = context.nodeModel.runQuery({
+          firstOnly: true,
+          type: 'File',
+          query: {
+            filter: {
+              absolutePath: {
+                eq: filePath
+              }
+            }
+          }
+        })
+
+        if (!fileNode) {
+          return null
+        }
+
+        return fileNode
+      }
+    })
+  })
+
   createTypes(`
     type SiteSiteMetadata {
       author: Author
@@ -108,6 +133,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       date: Date @dateformat
       keywords: [String]
       tags: [String]
+      thumbnail: File @fileByDataPath
     }
 
     type Fields {

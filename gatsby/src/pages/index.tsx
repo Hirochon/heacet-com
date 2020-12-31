@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Link, graphql, PageProps } from "gatsby";
+import { Link, graphql, PageProps, useStaticQuery } from "gatsby";
 
 import Bio from "../organisms/Bio/bio";
 import Layout from "../organisms/Layout/layout";
@@ -28,9 +28,8 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({ data, location }
   return (
     <Layout location={location} title={siteTitle} siteLogo={siteLogo}>
       <SEO title="All posts" />
-      <Bio />
       <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
+        {posts.map((post) => {
           const title = post.frontmatter?.title || post.fields?.slug
           return (
             <li key={post.fields!.slug!}>
@@ -60,6 +59,7 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({ data, location }
           )
         })}
       </ol>
+      <Bio />
     </Layout>
   )
 }
@@ -68,7 +68,7 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query BlogIndex {
-    siteLogo: file(absolutePath: { regex: "/heacet.com-logo.png/" }) {
+    siteLogo: file(relativePath: { eq: "heacet.com-logo.png" }) {
       childImageSharp {
         fixed(height: 40, quality: 95) {
           ...GatsbyImageSharpFixed
@@ -91,6 +91,13 @@ export const pageQuery = graphql`
           title
           description
           tags
+          thumbnail {
+            childImageSharp {
+              fixed(height: 40, quality: 95) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
         }
       }
     }
