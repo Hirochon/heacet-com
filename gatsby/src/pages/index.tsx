@@ -11,6 +11,7 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({ data, location }
   const siteTitle = data.site?.siteMetadata?.title!
   const posts = data.allMarkdownRemark.nodes
   const siteLogo = data.siteLogo
+  const defaultThumbnail = data.defaultThumbnail?.childImageSharp!.fixed!
 
   if (posts.length === 0) {
     return (
@@ -47,7 +48,11 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({ data, location }
                     className="posted-thumbnail"
                   />
                   :
-                  <></>
+                  <Image
+                    fixed={defaultThumbnail}
+                    alt={`default-thumbnail`}
+                    className="posted-thumbnail"
+                  />
                 }
                   <h2>
                     <Link to={post.fields!.slug!} itemProp="url">
@@ -79,6 +84,13 @@ export default BlogIndex
 export const pageQuery = graphql`
   query BlogIndex {
     siteLogo: file(relativePath: { eq: "heacet.com-logo.png" }) {
+      childImageSharp {
+        fixed(height: 40, quality: 95) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    defaultThumbnail: file(relativePath: { eq: "default-thumbnail.jpg"}) {
       childImageSharp {
         fixed(height: 40, quality: 95) {
           ...GatsbyImageSharpFixed
