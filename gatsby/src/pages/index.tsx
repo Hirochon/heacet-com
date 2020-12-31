@@ -43,35 +43,44 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({ data, location }
                     itemScope
                     itemType="http://schema.org/Article"
                   >
-                    <header>
-                      <h2>
-                        <Link to={post.fields!.slug!} itemProp="url">
-                          <span itemProp="headline">{title}</span>
-                        </Link>
-                      </h2>
-                      <small>{post.frontmatter!.date}</small>
+                    <header className="card-header">
+                      <div className="card-title">
+                        <h2>
+                          <Link to={post.fields!.slug!} itemProp="url">
+                            <span itemProp="headline">{title}</span>
+                          </Link>
+                        </h2>
+                        <small>{post.frontmatter!.date}</small>
+                      </div>
                       <br/>
-                      {post.frontmatter?.thumbnail ? 
-                        <Image
-                          fixed={post.frontmatter?.thumbnail!.childImageSharp?.fixed!}
-                          alt={`${title}-thumbnail`}
-                          className="posted-thumbnail"
-                        />
-                        :
-                        <Image
-                          fixed={defaultThumbnail}
-                          alt={`default-thumbnail`}
-                          className="posted-thumbnail"
-                        />
-                      }
+                      <Link to={post.fields!.slug!} itemProp="url">
+                        <div className="card-image">
+                          {post.frontmatter?.thumbnail ? 
+                            <Image
+                              fixed={post.frontmatter?.thumbnail!.childImageSharp?.fixed!}
+                              alt={`${title}-thumbnail`}
+                              className="posted-thumbnail"
+                            />
+                            :
+                            <Image
+                              fixed={defaultThumbnail}
+                              alt={`default-thumbnail`}
+                              className="posted-thumbnail"
+                            />
+                          }
+                        </div>
+                      </Link>
                     </header>
-                    <section>
+                    <section className="card-description">
                       <p
                         dangerouslySetInnerHTML={{
                           __html: post.frontmatter!.description || post.excerpt!,
                         }}
                         itemProp="description"
                       />
+                      <div className="read-more">
+                        <Link to={post.fields!.slug!} itemProp="url">続きを見る</Link>
+                      </div>
                     </section>
                   </article>
                 </li>

@@ -11,6 +11,67 @@
     .post-card {
       margin-bottom: 30px;
       background: $white;
+
+      .card-header {
+        padding-top: 10px;
+
+        .card-title {
+          padding: 20px 20px 0 20px;
+
+          a {
+            color: $gray;
+            text-decoration: none;
+
+            &:hover {
+              color: $main-color-hover;
+            }
+          }
+        }
+
+        .card-image {
+          position: relative;
+          overflow: hidden;
+
+          :hover {
+            opacity: 1;
+            
+            &::after {
+              opacity: 0.3;
+              position: absolute;
+              content: "";
+              display: block;
+              width: 100%;
+              height: 100%;
+              background: $gray no-repeat center center;
+              background-size: cover;
+            }
+          }
+
+        }
+      }
+
+      .card-description {
+        font-size: 14px;
+        padding: 20px;
+
+        .read-more {
+          margin-top: 20px;
+          display: block;
+          text-align: center;
+        }
+
+        a {
+          padding: 10px;
+          border: solid 0.5px;
+          color: $gray;
+          text-decoration: none;
+          border-radius: 3px;
+
+          &:hover {
+            color: $main-color-hover;
+          }
+        }
+      }
     }
   }
 }
