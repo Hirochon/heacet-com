@@ -1,19 +1,17 @@
-import React, { FC } from "react"
-import { Link, graphql, PageProps } from "gatsby"
+import React, { FC } from 'react';
+import { graphql, PageProps } from "gatsby";
 import Image from 'gatsby-image'
+import "./post.scss";
 
 import Bio from "../organisms/Bio/bio"
 import Layout from "../organisms/Layout/layout"
 import SEO from "../organisms/Seo/seo"
 import "./post.scss"
 
-
-const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({ data, location }) => {
+const FixedPostTemplate: FC<PageProps<GatsbyTypes.FixedPostBySlugQuery>> = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site?.siteMetadata?.title!
-  const { previous, next } = data
   const siteLogo = data.siteLogo
-  const defaultThumbnail = data.defaultThumbnail?.childImageSharp!.fixed!
 
   return (
     <Layout location={location} title={siteTitle} siteLogo={siteLogo}>
@@ -38,43 +36,13 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({ data
                 className="posted-thumbnail"
               />
               :
-              <Image
-                fixed={defaultThumbnail}
-                alt={`default-thumbnail`}
-                className="posted-thumbnail"
-              />
+              <></>
             }
           </header>
           <section
             dangerouslySetInnerHTML={{ __html: post!.html! }}
             itemProp="articleBody"
           />
-          <nav className="blog-post-nav">
-            <ul
-              style={{
-                display: `flex`,
-                flexWrap: `wrap`,
-                justifyContent: `space-between`,
-                listStyle: `none`,
-                padding: 0,
-              }}
-            >
-              <li>
-                {previous && (
-                  <Link to={previous.fields?.slug!} rel="prev">
-                    ← {previous.frontmatter?.title}
-                  </Link>
-                )}
-              </li>
-              <li>
-                {next && (
-                  <Link to={next.fields?.slug!} rel="next">
-                    {next.frontmatter?.title} →
-                  </Link>
-                )}
-              </li>
-            </ul>
-          </nav>
         </article>
         <Bio />
       </div>
@@ -82,24 +50,15 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({ data
   )
 }
 
-export default BlogPostTemplate
+export default FixedPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug(
+  query FixedPostBySlug(
     $id: String!
-    $previousPostId: String
-    $nextPostId: String
   ) {
     siteLogo: file(absolutePath: { regex: "/heacet.com-logo.png/" }) {
       childImageSharp {
         fixed(height: 40, quality: 95) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    defaultThumbnail: file(relativePath: { eq: "default-thumbnail.jpg"}) {
-      childImageSharp {
-        fixed(height: 350, width: 750, quality: 90) {
           ...GatsbyImageSharpFixed
         }
       }
@@ -126,22 +85,6 @@ export const pageQuery = graphql`
             }
           }
         }
-      }
-    }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-      }
-    }
-    next: markdownRemark(id: { eq: $nextPostId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
       }
     }
   }

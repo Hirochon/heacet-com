@@ -2,7 +2,7 @@
 title: My Second Post!
 date: "2015-05-06T23:46:37.121Z"
 tags: [HelloWorld]
-thumbnail: my-second-post/icon_001.png
+thumbnail: blog/my-second-post/icon_001.png
 ---
 
 Wow! I love blogging so much already.

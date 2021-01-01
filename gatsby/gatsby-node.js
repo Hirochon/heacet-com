@@ -6,14 +6,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Define a template for blog post
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
+  const fixedPost = path.resolve(`./src/templates/fixed-post.tsx`)
 
   // Get all markdown blog posts sorted by date
-  const result = await graphql(
+  const resultBlog = await graphql(
     `
       {
         allMarkdownRemark(
           sort: { fields: [frontmatter___date], order: ASC }
           limit: 1000
+          filter: {frontmatter: {isFixed: {nin: true}}}
         ) {
           nodes {
             id
@@ -26,25 +28,53 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `
   )
 
-  if (result.errors) {
+  const resultFixed = await graphql(
+    `
+      {
+        allMarkdownRemark(
+          filter: {frontmatter: {isFixed: {eq: true}}}
+        ) {
+          nodes {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              isFixed
+            }
+          }
+        }
+      }
+    `
+  )
+
+  if (resultBlog.errors) {
     reporter.panicOnBuild(
       `There was an error loading your blog posts`,
-      result.errors
+      resultBlog.errors
+    )
+    return
+  }
+  if (resultFixed.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your blog posts`,
+      resultFixed.errors
     )
     return
   }
 
-  const posts = result.data.allMarkdownRemark.nodes
+  const postsBlog = resultBlog.data.allMarkdownRemark.nodes
+  const postsFixed = resultFixed.data.allMarkdownRemark.nodes
 
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
   // `context` is available in the template as a prop and as a variable in GraphQL
 
-  if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      const previousPostId = index === 0 ? null : posts[index - 1].id
-      const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
-
+  if (postsBlog.length > 0) {
+    postsBlog.forEach((post, index) => {
+      const previousPostId = index === 0 ? null : postsBlog[index - 1].id
+      const nextPostId = index === postsBlog.length - 1 ? null : postsBlog[index + 1].id
+      
       createPage({
         path: post.fields.slug,
         component: blogPost,
@@ -54,6 +84,22 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           nextPostId,
         },
       })
+    })
+  }
+
+  if (postsFixed.length > 0) {
+    postsFixed.forEach((post) => {
+      const isFixed = post.frontmatter.isFixed
+
+      if (!!isFixed) {
+        createPage({
+          path: post.fields.slug,
+          component: fixedPost,
+          context: {
+            id: post.id,
+          },
+        })
+      }
     })
   }
 }
@@ -84,7 +130,7 @@ exports.createSchemaCustomization = ({ actions }) => {
             return null
           }
 
-        const filePath = path.join(__dirname, 'content/blog/', partialPath)
+        const filePath = path.join(__dirname, 'content/', partialPath)
         const fileNode = context.nodeModel.runQuery({
           firstOnly: true,
           type: 'File',
@@ -134,6 +180,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       keywords: [String]
       tags: [String]
       thumbnail: File @fileByDataPath
+      isFixed: Boolean
     }
 
     type Fields {
