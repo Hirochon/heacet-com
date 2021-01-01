@@ -1,5 +1,6 @@
 @import "../organisms/Styles/color.scss";
 
+
 .main-contents {
   display: flex;
   flex-direction: row;
@@ -8,5 +9,18 @@
     width: 750px;
     background-color: $white;
     padding: 20px;
+
+    header {
+      margin-bottom: 30px;
+
+      h1 {
+        margin: 10px 0;
+      }
+      p {
+        color: $gray-hover;
+        margin: 0;
+        font-size: 14px;
+      }
+    }
   }
 }
