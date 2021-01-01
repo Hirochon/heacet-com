@@ -7,6 +7,10 @@
 
   .post-card-list {
     width: 750px;
+
+    ol {
+      margin: 0;
+    }
   
     .post-card {
       margin-bottom: 30px;
