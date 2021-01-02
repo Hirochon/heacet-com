@@ -69,7 +69,7 @@
           border-left: solid 0.5px $gray-line;
         }
 
-        @include mq(sm) {
+        @include mq(ss) {
           display: none;
         }
       }
@@ -79,10 +79,16 @@
         border-left: solid 0.5px $gray-line;
         border-right: solid 0.5px $gray-line;
         display: flex;
+
+        @include mq(sm) {
+          display: none;
+        }
+
         a {
           display: flex;
           align-items: center;
           padding: 0 20px;
+          cursor: pointer;
 
           .font-size {
             font-size: 17px;
@@ -99,4 +105,6 @@
       
     }
   }
+
+  
 }
