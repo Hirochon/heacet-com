@@ -13,6 +13,10 @@
   .post-card-list {
     max-width: 750px;
 
+    @include mq(md) {
+      min-width: 750px;
+    }
+
     @include mq(lg) {
       max-width: 1015px;
     }

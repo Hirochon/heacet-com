@@ -5,6 +5,7 @@ import Image from "gatsby-image";
 import Bio from "../organisms/Bio/bio";
 import Layout from "../organisms/Layout/layout";
 import SEO from "../organisms/Seo/seo";
+import Pagination from "../organisms/Pagination/pagination";
 import "./home.scss";
 
 
@@ -13,6 +14,7 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({ data, location }
   const posts = data.allMarkdownRemark.nodes
   const siteLogo = data.siteLogo
   const defaultThumbnail = data.defaultThumbnail?.childImageSharp!.fluid!
+  const pageInfo = data.allMarkdownRemark.pageInfo
 
   if (posts.length === 0) {
     return (
@@ -85,6 +87,12 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({ data, location }
               )
             })}
           </ol>
+          <Pagination 
+            currentPage={pageInfo.currentPage}
+            hasNextPage={pageInfo.hasNextPage}
+            hasPreviousPage={pageInfo.hasPreviousPage}
+            pageCount={pageInfo.pageCount}
+          />
         </div>
         <Bio />
       </div>
@@ -95,7 +103,10 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({ data, location }
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query BlogIndex {
+  query BlogIndex(
+      $limit: Int!
+      $skip: Int!
+    ) {
     siteLogo: file(relativePath: { eq: "heacet.com-logo.png" }) {
       childImageSharp {
         fixed(height: 32, quality: 90) {
@@ -115,8 +126,12 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC },
-                      filter: {frontmatter: {isFixed: {nin: true}}}) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC },
+      filter: {frontmatter: {isFixed: {nin: true}}},
+      limit: $limit,
+      skip: $skip
+    ) {
       nodes {
         excerpt
         fields {
@@ -135,6 +150,12 @@ export const pageQuery = graphql`
             }
           }
         }
+      }
+      pageInfo {
+        currentPage
+        hasNextPage
+        hasPreviousPage
+        pageCount
       }
     }
   }
