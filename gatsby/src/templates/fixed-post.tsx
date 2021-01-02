@@ -1,17 +1,19 @@
 import React, { FC } from 'react';
 import { graphql, PageProps } from "gatsby";
-import Image from 'gatsby-image'
+import Image from 'gatsby-image';
+
+import Bio from "../organisms/Bio/bio";
+import Layout from "../organisms/Layout/layout";
+import SEO from "../organisms/Seo/seo";
+import ContactForm from "./contact";
 import "./post.scss";
 
-import Bio from "../organisms/Bio/bio"
-import Layout from "../organisms/Layout/layout"
-import SEO from "../organisms/Seo/seo"
-import "./post.scss"
 
 const FixedPostTemplate: FC<PageProps<GatsbyTypes.FixedPostBySlugQuery>> = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site?.siteMetadata?.title!
   const siteLogo = data.siteLogo
+  const keywords = post!.frontmatter?.keywords
 
   return (
     <Layout location={location} title={siteTitle} siteLogo={siteLogo}>
@@ -39,10 +41,19 @@ const FixedPostTemplate: FC<PageProps<GatsbyTypes.FixedPostBySlugQuery>> = ({ da
               <></>
             }
           </header>
-          <section
-            dangerouslySetInnerHTML={{ __html: post!.html! }}
-            itemProp="articleBody"
-          />
+          {!!keywords ? 
+            (keywords![0] === "contactForm" ? 
+              (<ContactForm />) :
+              (<section
+                dangerouslySetInnerHTML={{ __html: post!.html! }}
+                itemProp="articleBody"
+              />)
+            ) :
+            (<section
+              dangerouslySetInnerHTML={{ __html: post!.html! }}
+              itemProp="articleBody"
+            />)
+          }
         </article>
         <Bio />
       </div>
