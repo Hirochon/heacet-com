@@ -99,7 +99,7 @@ export const pageQuery = graphql`
     }
     defaultThumbnail: file(relativePath: { eq: "default-thumbnail.jpg"}) {
       childImageSharp {
-        fixed(height: 350, width: 750, quality: 90) {
+        fixed(height: 350, width: 710, quality: 90) {
           ...GatsbyImageSharpFixed
         }
       }
@@ -121,7 +121,7 @@ export const pageQuery = graphql`
         tags
         thumbnail {
           childImageSharp {
-            fixed(height: 350, width: 750, quality: 90) {
+            fixed(height: 350, width: 710, quality: 90) {
               ...GatsbyImageSharpFixed
             }
           }

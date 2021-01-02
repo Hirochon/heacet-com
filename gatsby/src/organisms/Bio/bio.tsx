@@ -1,5 +1,5 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 import Image from "gatsby-image";
 import './bio.scss';
 
@@ -59,6 +59,7 @@ const Bio = () => {
           </div>
         </p>
       )}
+      <Link to="/contact-form">» お問い合わせはコチラ</Link>
     </div>
   )
 }
