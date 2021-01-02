@@ -98,7 +98,7 @@ export const pageQuery = graphql`
   query BlogIndex {
     siteLogo: file(relativePath: { eq: "heacet.com-logo.png" }) {
       childImageSharp {
-        fixed(height: 40, quality: 90) {
+        fixed(height: 32, quality: 90) {
           ...GatsbyImageSharpFixed
         }
       }
