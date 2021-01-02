@@ -18,6 +18,7 @@ const Layout: FC<Props> = ({ location, title, siteLogo, children }) => {
 
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
+      <div className="header-color"></div>
       <Header isRootPath={isRootPath} title={title} siteLogo={siteLogo} />
       <main className="global-main">{children}</main>
       <Footer />

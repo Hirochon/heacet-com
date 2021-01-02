@@ -205,8 +205,13 @@ a:focus {
   color: $main-color-hover;
 }
 
+.header-color {
+  background: $white;
+  height: 60px;
+}
+
 .global-main {
   max-width: 1150px;
   margin: 0 auto;
-  padding: 30px 0;
+  padding: 20px 0 0;
 }

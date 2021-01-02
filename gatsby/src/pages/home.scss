@@ -13,12 +13,16 @@
   .post-card-list {
     max-width: 750px;
 
+    @include mq(lg) {
+      max-width: 1015px;
+    }
+
     ol {
       margin: 0;
     }
   
     .post-card {
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       background: $white;
 
       .card-header {

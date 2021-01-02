@@ -5,7 +5,7 @@
 .main-contents {
   display: flex;
   flex-direction: row;
-  margin: 0 10px;
+  margin: 0 10px 20px;
 
   @include mq(lg) {
     flex-direction: column;
@@ -14,7 +14,15 @@
   .blog-post {
     max-width: 710px;
     background-color: $white;
-    padding: 20px;
+    padding: 20px 20px 0 20px;
+
+    @include mq(md) {
+      min-width: 710px;
+    }
+
+    @include mq(lg) {
+      max-width: 1015px;
+    }
 
     header {
       margin-bottom: 30px;
