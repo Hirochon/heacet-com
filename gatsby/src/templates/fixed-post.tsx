@@ -33,7 +33,7 @@ const FixedPostTemplate: FC<PageProps<GatsbyTypes.FixedPostBySlugQuery>> = ({ da
             <p>{post!.frontmatter?.date}</p>
             {post!.frontmatter?.thumbnail ? 
               <Image
-                fixed={post!.frontmatter?.thumbnail!.childImageSharp?.fixed!}
+                fluid={post!.frontmatter?.thumbnail!.childImageSharp?.fluid!}
                 alt={`${post!.frontmatter?.title!}-thumbnail`}
                 className="posted-thumbnail"
               />
@@ -91,8 +91,8 @@ export const pageQuery = graphql`
         tags
         thumbnail {
           childImageSharp {
-            fixed(height: 350, width: 730, quality: 90) {
-              ...GatsbyImageSharpFixed
+            fluid(maxHeight: 350, maxWidth: 730) {
+              ...GatsbyImageSharpFluid
             }
           }
         }

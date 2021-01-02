@@ -12,7 +12,7 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({ data, location }
   const siteTitle = data.site?.siteMetadata?.title!
   const posts = data.allMarkdownRemark.nodes
   const siteLogo = data.siteLogo
-  const defaultThumbnail = data.defaultThumbnail?.childImageSharp!.fixed!
+  const defaultThumbnail = data.defaultThumbnail?.childImageSharp!.fluid!
 
   if (posts.length === 0) {
     return (
@@ -55,13 +55,13 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({ data, location }
                         <div className="card-image">
                           {post.frontmatter?.thumbnail ? 
                             <Image
-                              fixed={post.frontmatter?.thumbnail!.childImageSharp?.fixed!}
+                              fluid={post.frontmatter?.thumbnail!.childImageSharp?.fluid!}
                               alt={`${title}-thumbnail`}
                               className="posted-thumbnail"
                             />
                             :
                             <Image
-                              fixed={defaultThumbnail}
+                              fluid={defaultThumbnail}
                               alt={`default-thumbnail`}
                               className="posted-thumbnail"
                             />
@@ -105,8 +105,8 @@ export const pageQuery = graphql`
     }
     defaultThumbnail: file(relativePath: { eq: "default-thumbnail.jpg"}) {
       childImageSharp {
-        fixed(height: 300, width: 750, quality: 90) {
-          ...GatsbyImageSharpFixed
+        fluid(maxHeight: 300, maxWidth: 750) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -129,8 +129,8 @@ export const pageQuery = graphql`
           tags
           thumbnail {
             childImageSharp {
-              fixed(height: 300, width: 750, quality: 90) {
-                ...GatsbyImageSharpFixed
+              fluid(maxHeight: 300, maxWidth: 750) {
+                ...GatsbyImageSharpFluid
               }
             }
           }

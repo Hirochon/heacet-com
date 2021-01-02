@@ -6,9 +6,10 @@
   background: $gray;
   color: $white;
   text-align: center;
-  line-height: 100px;
 
   p {
     font-size: 12px;
+    line-height: 100px;
+    margin: 0;
   }
 }

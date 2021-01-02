@@ -1,12 +1,18 @@
 @import "../organisms/Styles/color.scss";
+@import "../organisms/Styles/media-query.scss";
 
 
 .main-contents {
   display: flex;
   flex-direction: row;
+  margin: 0 10px;
+
+  @include mq(lg) {
+    flex-direction: column;
+  }
 
   .blog-post {
-    width: 750px;
+    max-width: 710px;
     background-color: $white;
     padding: 20px;
 

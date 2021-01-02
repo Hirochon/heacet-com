@@ -1,12 +1,17 @@
 @import "../organisms/Styles/color.scss";
+@import "../organisms/Styles/media-query.scss";
 
 
 .main-contents {
   display: flex;
   flex-direction: row;
 
+  @include mq(lg) {
+    flex-direction: column;
+  }
+
   .post-card-list {
-    width: 750px;
+    max-width: 750px;
 
     ol {
       margin: 0;

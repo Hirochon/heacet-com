@@ -13,7 +13,7 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({ data
   const siteTitle = data.site?.siteMetadata?.title!
   const { previous, next } = data
   const siteLogo = data.siteLogo
-  const defaultThumbnail = data.defaultThumbnail?.childImageSharp!.fixed!
+  const defaultThumbnail = data.defaultThumbnail?.childImageSharp!.fluid!
 
   return (
     <Layout location={location} title={siteTitle} siteLogo={siteLogo}>
@@ -33,13 +33,13 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({ data
             <p>{post!.frontmatter?.date}</p>
             {post!.frontmatter?.thumbnail ? 
               <Image
-                fixed={post!.frontmatter?.thumbnail!.childImageSharp?.fixed!}
+                fluid={post!.frontmatter?.thumbnail!.childImageSharp?.fluid!}
                 alt={`${post!.frontmatter?.title!}-thumbnail`}
                 className="posted-thumbnail"
               />
               :
               <Image
-                fixed={defaultThumbnail}
+                fluid={defaultThumbnail}
                 alt={`default-thumbnail`}
                 className="posted-thumbnail"
               />
@@ -99,8 +99,8 @@ export const pageQuery = graphql`
     }
     defaultThumbnail: file(relativePath: { eq: "default-thumbnail.jpg"}) {
       childImageSharp {
-        fixed(height: 350, width: 710, quality: 90) {
-          ...GatsbyImageSharpFixed
+        fluid(maxHeight: 350, maxWidth: 710) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -121,8 +121,8 @@ export const pageQuery = graphql`
         tags
         thumbnail {
           childImageSharp {
-            fixed(height: 350, width: 710, quality: 90) {
-              ...GatsbyImageSharpFixed
+            fluid(maxHeight: 350, maxWidth: 710) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
