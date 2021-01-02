@@ -22,5 +22,40 @@
         font-size: 14px;
       }
     }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        padding: 5px 15px;
+        appearance: none;
+        border-radius: 2px;
+      }
+
+      button.btn--orange {
+        color: $white;
+        background-color: $main-color-hover;
+        border-bottom: 5px solid $main-color;
+      }
+      button.btn--orange:hover {
+        margin-top: 3px;
+        color: $white;
+        background: $main-color-hover;
+        border-bottom: 2px solid $main-color;
+      }
+      button.btn--shadow {
+        -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+      }
+    }
   }
 }
