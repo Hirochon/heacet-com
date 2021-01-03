@@ -1,6 +1,8 @@
 import React, { FC } from "react"
 import { Link, graphql, PageProps } from "gatsby"
 import Image from 'gatsby-image'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTags, faObjectGroup } from "@fortawesome/free-solid-svg-icons";
 
 import Bio from "../../organisms/Bio/bio"
 import Layout from "../../organisms/Layout/layout"
@@ -14,6 +16,7 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({ data
   const { previous, next } = data
   const siteLogo = data.siteLogo
   const defaultThumbnail = data.defaultThumbnail?.childImageSharp!.fluid!
+  const tags = post!.frontmatter?.tags
 
   return (
     <Layout location={location} title={siteTitle} siteLogo={siteLogo}>
@@ -29,8 +32,42 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({ data
           itemType="http://schema.org/Article"
         >
           <header>
-            <h1 itemProp="headline">{post!.frontmatter?.title}</h1>
-            <p>{post!.frontmatter?.date}</p>
+            <div className="content-header">
+              <h1 itemProp="headline">{post!.frontmatter?.title}</h1>
+              <div className="header-description">
+                <p>{post!.frontmatter?.date}</p>
+                <div className="header-link">
+                  <div className="header-category">
+                    <div className="icon">
+                      <FontAwesomeIcon icon={faObjectGroup} size="1x" />
+                    </div>
+                    <div className="slug-list">
+                      {post!.frontmatter?.category ? 
+                        <Link to={`/category/${post!.frontmatter?.category!}`}>{post!.frontmatter?.category!}</Link>
+                        :
+                        <></>
+                      }
+                    </div>
+                  </div>
+                  <div className="header-tag">
+                    <div className="icon">
+                      <FontAwesomeIcon icon={faTags} size="1x" />
+                    </div>
+                    <div className="slug-list">
+                      {tags ?
+                        tags.map((tag) => (
+                          <div key={tag}>
+                            <Link to={`/tag/${tag}`} key={tag}>{tag}</Link>
+                          </div>
+                        ))
+                        :
+                        <></>
+                      }
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             {post!.frontmatter?.thumbnail ? 
               <Image
                 fluid={post!.frontmatter?.thumbnail!.childImageSharp?.fluid!}
@@ -119,6 +156,7 @@ export const pageQuery = graphql`
         description
         keywords
         tags
+        category
         thumbnail {
           childImageSharp {
             fluid(maxHeight: 350, maxWidth: 710) {

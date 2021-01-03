@@ -3,7 +3,7 @@ title: I am Hirochon
 date: "2020-12-29T17:00:00Z"
 description: 実はひろちょんていう発音するんやで
 keywords: [ひろちょん,やで]
-tags: [World]
+tags: [Hello, World]
 category: programming
 thumbnail: blog/my-name-is-hirochon/ara_women.png
 ---
