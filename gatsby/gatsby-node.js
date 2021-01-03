@@ -9,6 +9,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const fixedPost = path.resolve(`./src/templates/post/fixed-post.tsx`)
   const postIndex = path.resolve(`./src/templates/index/index.tsx`)
   const categoryPostIndex = path.resolve(`./src/templates/index/category.tsx`)
+  const tagPostIndex = path.resolve(`./src/templates/index/tag.tsx`)
 
   // Get all markdown blog posts sorted by date
   const resultBlog = await graphql(
@@ -26,6 +27,23 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
           }
           group(field: frontmatter___category) {
+            fieldValue
+            totalCount
+          }
+        }
+      }
+    `
+  )
+
+  const tagGroup = await graphql(
+    `
+      {
+        allMarkdownRemark(
+          sort: { fields: [frontmatter___date], order: ASC }
+          limit: 1000
+          filter: {frontmatter: {isFixed: {nin: true}}}
+        ) {
+          group(field: frontmatter___tags) {
             fieldValue
             totalCount
           }
@@ -61,9 +79,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     )
     return
   }
+  if (tagGroup.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your tag group`,
+      tagGroup.errors
+    )
+    return
+  }
   if (resultFixed.errors) {
     reporter.panicOnBuild(
-      `There was an error loading your blog posts`,
+      `There was an error loading your fixed posts`,
       resultFixed.errors
     )
     return
@@ -72,16 +97,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const postsBlog = resultBlog.data.allMarkdownRemark.nodes
   const postsFixed = resultFixed.data.allMarkdownRemark.nodes
   const categoryList = resultBlog.data.allMarkdownRemark.group
+  const tagList = tagGroup.data.allMarkdownRemark.group
 
   const postsPerPage = 2
   const numPages = Math.ceil(postsBlog.length / postsPerPage)
 
   if (postsBlog.length > 0) {
     categoryList.forEach((category) => {
-      const categorynumPages = Math.ceil(category.totalCount / postsPerPage)
+      const categoryNumPages = Math.ceil(category.totalCount / postsPerPage)
       categoryPathBase = `/category/${category.fieldValue}`
 
-      Array.from({ length: categorynumPages }).forEach((_, i) => {
+      Array.from({ length: categoryNumPages }).forEach((_, i) => {
         createPage({
           path: i === 0 ? categoryPathBase : `${categoryPathBase}/${i + 1}`,
           component: categoryPostIndex,
@@ -89,9 +115,29 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             limit: postsPerPage,
             skip: i * postsPerPage,
             category: category.fieldValue,
-            numPages: categorynumPages,
+            numPages: categoryNumPages,
             currentPage: i + 1,
             pathBase: categoryPathBase
+          },
+        })
+      })
+    })
+
+    tagList.forEach((tag) => {
+      const tagNumPages = Math.ceil(tag.totalCount / postsPerPage)
+      tagPathBase = `/tag/${tag.fieldValue}`
+
+      Array.from({ length: tagNumPages }).forEach((_, i) => {
+        createPage({
+          path: i === 0 ? tagPathBase : `${tagPathBase}/${i + 1}`,
+          component: tagPostIndex,
+          context: {
+            limit: postsPerPage,
+            skip: i * postsPerPage,
+            tag: tag.fieldValue,
+            numPages: tagNumPages,
+            currentPage: i + 1,
+            pathBase: tagPathBase
           },
         })
       })
