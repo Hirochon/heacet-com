@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import { graphql, PageProps } from "gatsby";
 import Image from 'gatsby-image';
 
-import Bio from "../organisms/Bio/bio";
-import Layout from "../organisms/Layout/layout";
-import SEO from "../organisms/Seo/seo";
+import Bio from "../../organisms/Bio/bio";
+import Layout from "../../organisms/Layout/layout";
+import SEO from "../../organisms/Seo/seo";
 import ContactForm from "./contact";
 import "./post.scss";
 
