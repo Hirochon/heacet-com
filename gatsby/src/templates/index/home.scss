@@ -47,6 +47,60 @@
               color: $main-color-hover;
             }
           }
+
+          .header-description {
+            display: flex;
+            flex-direction: row;
+            line-height: 23px;
+  
+            @include mq(mm) {
+              flex-direction: column;
+            }
+  
+            .header-link {
+              display: flex;
+            }
+  
+            p {
+              color: $gray-hover;
+              margin: 0;
+              font-size: 14px;
+            }
+    
+            .slug-list {
+              padding-left: 5px;
+              display: flex;
+              flex-direction: row;
+            }
+  
+            .icon {
+              margin-left: 10px;
+              padding-right: 5px;
+              line-height: 23px;
+              border-right: 0.5px solid $gray-line;
+            }
+    
+            .header-category {
+              display: flex;
+              flex-direction: row;
+            }
+    
+            .header-tag {
+              display: flex;
+              flex-direction: row;
+            }
+    
+            a {
+              color: $gray;
+              font-size: 14px;
+              margin-right: 5px;
+              text-decoration: underline;
+    
+              &:hover {
+                color: #646464;
+              }
+            }
+          }
         }
 
         .card-image {

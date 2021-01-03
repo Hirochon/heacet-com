@@ -1,6 +1,8 @@
 import React, { FC } from "react";
 import { Link, graphql, PageProps } from "gatsby";
 import Image from "gatsby-image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTags, faObjectGroup } from "@fortawesome/free-solid-svg-icons";
 
 import Bio from "../../organisms/Bio/bio";
 import Layout from "../../organisms/Layout/layout";
@@ -36,6 +38,7 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({ data, location }
           <ol style={{ listStyle: `none` }}>
             {posts.map((post) => {
               const title = post.frontmatter?.title || post.fields?.slug
+              const tags = post!.frontmatter?.tags
               return (
                 <li key={post.fields!.slug!}>
                   <article
@@ -50,7 +53,39 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({ data, location }
                             <span itemProp="headline">{title}</span>
                           </Link>
                         </h2>
-                        <small>{post.frontmatter!.date}</small>
+                        <div className="header-description">  
+                          <p>{post.frontmatter!.date}</p>
+                          <div className="header-link">
+                            <div className="header-category">
+                              <div className="icon">
+                                <FontAwesomeIcon icon={faObjectGroup} size="1x" />
+                              </div>
+                              <div className="slug-list">
+                                {post!.frontmatter?.category ? 
+                                  <Link to={`/category/${post!.frontmatter?.category!}`}>{post!.frontmatter?.category!}</Link>
+                                  :
+                                  <></>
+                                }
+                              </div>
+                            </div>
+                            <div className="header-tag">
+                              <div className="icon">
+                                <FontAwesomeIcon icon={faTags} size="1x" />
+                              </div>
+                              <div className="slug-list">
+                                {tags ?
+                                  tags.map((tag) => (
+                                    <div key={tag}>
+                                      <Link to={`/tag/${tag}`} key={tag}>{tag}</Link>
+                                    </div>
+                                  ))
+                                  :
+                                  <></>
+                                }
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                       <br/>
                       <Link to={post.fields!.slug!} itemProp="url">
@@ -141,6 +176,7 @@ export const pageQuery = graphql`
           date(formatString: "YYYY年MM月DD日")
           title
           description
+          category
           tags
           thumbnail {
             childImageSharp {
