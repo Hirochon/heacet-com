@@ -8,6 +8,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const blogPost = path.resolve(`./src/templates/post/blog-post.tsx`)
   const fixedPost = path.resolve(`./src/templates/post/fixed-post.tsx`)
   const postIndex = path.resolve(`./src/templates/index/index.tsx`)
+  const categoryPostIndex = path.resolve(`./src/templates/index/category.tsx`)
 
   // Get all markdown blog posts sorted by date
   const resultBlog = await graphql(
@@ -23,6 +24,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             fields {
               slug
             }
+          }
+          group(field: frontmatter___category) {
+            fieldValue
+            totalCount
           }
         }
       }
@@ -66,11 +71,32 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const postsBlog = resultBlog.data.allMarkdownRemark.nodes
   const postsFixed = resultFixed.data.allMarkdownRemark.nodes
+  const categoryList = resultBlog.data.allMarkdownRemark.group
 
   const postsPerPage = 2
   const numPages = Math.ceil(postsBlog.length / postsPerPage)
 
   if (postsBlog.length > 0) {
+    categoryList.forEach((category) => {
+      const categorynumPages = Math.ceil(category.totalCount / postsPerPage)
+      categoryPathBase = `/category/${category.fieldValue}`
+
+      Array.from({ length: categorynumPages }).forEach((_, i) => {
+        createPage({
+          path: i === 0 ? categoryPathBase : `${categoryPathBase}/${i + 1}`,
+          component: categoryPostIndex,
+          context: {
+            limit: postsPerPage,
+            skip: i * postsPerPage,
+            category: category.fieldValue,
+            numPages: categorynumPages,
+            currentPage: i + 1,
+            pathBase: categoryPathBase
+          },
+        })
+      })
+    })
+
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
         path: i === 0 ? `/` : `/${i + 1}`,
@@ -192,6 +218,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       date: Date @dateformat
       keywords: [String]
       tags: [String]
+      category: String
       thumbnail: File @fileByDataPath
       isFixed: Boolean
     }

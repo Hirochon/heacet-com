@@ -4,6 +4,7 @@ date: "2015-05-01T22:12:03.284Z"
 description: "Hello World"
 keywords: [Hello, world]
 tags: [Hello]
+category: programming
 # thumbnail: hello-world/salty_egg.jpg
 ---
 

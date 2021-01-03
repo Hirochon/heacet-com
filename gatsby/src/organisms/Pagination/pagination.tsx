@@ -8,11 +8,12 @@ type pageInfoType = {
   hasNextPage: boolean
   hasPreviousPage: boolean
   pageCount: number
+  categorySlug?: string
+  tagSlug?: string
 }
 
-const Pagination: FC<pageInfoType> = ({currentPage, hasNextPage, hasPreviousPage, pageCount}) => {
+const Pagination: FC<pageInfoType> = ({currentPage, hasNextPage, hasPreviousPage, pageCount, categorySlug, tagSlug}) => {
   let previousPage
-  let nextPage
   if (currentPage - 1 === 1) {
     previousPage = ""
   }
@@ -20,26 +21,28 @@ const Pagination: FC<pageInfoType> = ({currentPage, hasNextPage, hasPreviousPage
     previousPage = currentPage - 1
   }
 
+  const slug = categorySlug ?? tagSlug ?? ""
+
   return (
     <div className="pagination-bar">
       {hasPreviousPage ? 
-        <Link className="buttobi-arrow" to={`/`}>≪</Link>
+        <Link className="buttobi-arrow" to={`/${slug}`}>≪</Link>
         :
         <div className="empty"></div>
       }
       {hasPreviousPage ? 
-        <Link className="radius" to={`/${previousPage}`}>{currentPage-1}</Link>
+        <Link className="radius" to={`/${slug}${previousPage}`}>{currentPage-1}</Link>
         :
         <div className="empty"></div>
       }
       <p>{`${currentPage} / ${pageCount}`}</p>
       {hasNextPage ?
-        <Link className="radius" to={`/${currentPage+1}`}>{currentPage+1}</Link>
+        <Link className="radius" to={`/${slug}${currentPage+1}`}>{currentPage+1}</Link>
         :
         <div className="empty"></div>
       }
       {hasNextPage ?
-        <Link className="buttobi-arrow" to={`/${pageCount}`}>≫</Link>
+        <Link className="buttobi-arrow" to={`/${slug}${pageCount}`}>≫</Link>
         :
         <div className="empty"></div>
       }

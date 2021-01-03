@@ -3,6 +3,7 @@ title: ポートフォリオとは？【エンジニア/クリエイター向け
 date: "2020-04-17T02:48:18Z"
 description: 【ポートフォリオ】エンジニアやクリエイターをしていて疑問に思うことがあります。『ポートフォリオとは？』これについてポートフォリオを使って内定を3つも頂くことができた僕が解説していきます。どうぞご覧ください。
 thumbnail: blog/whats-portfolio/port_samune.jpg
+category: programming
 ---
 
 こんちゃっす、ひろちです。
