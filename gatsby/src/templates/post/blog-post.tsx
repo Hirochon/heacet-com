@@ -7,6 +7,7 @@ import { faTags, faObjectGroup } from "@fortawesome/free-solid-svg-icons";
 import Bio from "../../organisms/Bio/bio"
 import Layout from "../../organisms/Layout/layout"
 import SEO from "../../organisms/Seo/seo"
+import toJapanese from "../../atoms/toJapanese"
 import "./post.scss"
 
 
@@ -43,7 +44,7 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({ data
                     </div>
                     <div className="slug-list">
                       {post!.frontmatter?.category ? 
-                        <Link to={`/category/${post!.frontmatter?.category!}`}>{post!.frontmatter?.category!}</Link>
+                        <Link to={`/category/${post!.frontmatter?.category!}`}>{toJapanese(post!.frontmatter?.category!)}</Link>
                         :
                         <></>
                       }
@@ -57,7 +58,7 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({ data
                       {tags ?
                         tags.map((tag) => (
                           <div key={tag}>
-                            <Link to={`/tag/${tag}`} key={tag}>{tag}</Link>
+                            <Link to={`/tag/${tag}`} key={tag}>{toJapanese(tag!)}</Link>
                           </div>
                         ))
                         :

@@ -13,6 +13,7 @@ type pageInfoType = {
 }
 
 const Pagination: FC<pageInfoType> = ({currentPage, hasNextPage, hasPreviousPage, pageCount, categorySlug, tagSlug}) => {
+
   let previousPage
   if (currentPage - 1 === 1) {
     previousPage = ""

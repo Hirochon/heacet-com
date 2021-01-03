@@ -8,6 +8,7 @@ import Bio from "../../organisms/Bio/bio";
 import Layout from "../../organisms/Layout/layout";
 import SEO from "../../organisms/Seo/seo";
 import Pagination from "../../organisms/Pagination/pagination";
+import toJapanese from "../../atoms/toJapanese";
 import "./home.scss";
 
 
@@ -63,7 +64,7 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexCategoryQuery>> = ({ data, lo
                               </div>
                               <div className="slug-list">
                                 {post!.frontmatter?.category ? 
-                                  <Link to={`/category/${post!.frontmatter?.category!}`}>{post!.frontmatter?.category!}</Link>
+                                  <Link to={`/category/${post!.frontmatter?.category!}`}>{toJapanese(post!.frontmatter?.category!)}</Link>
                                   :
                                   <></>
                                 }
@@ -77,7 +78,7 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexCategoryQuery>> = ({ data, lo
                                 {tags ?
                                   tags.map((tag) => (
                                     <div key={tag}>
-                                      <Link to={`/tag/${tag}`} key={tag}>{tag}</Link>
+                                      <Link to={`/tag/${tag}`} key={tag}>{toJapanese(tag!)}</Link>
                                     </div>
                                   ))
                                   :
