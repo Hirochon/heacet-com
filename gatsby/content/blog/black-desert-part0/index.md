@@ -5,6 +5,7 @@ description: 【黒い砂漠Mobile】ランキング上位に入っていたア�
 thumbnail: blog/black-desert-part0/黒い砂漠MOBILE-公式HP2.jpeg
 tags: [black-desert-mobile]
 category: smartphone-game
+keywords: [黒い砂漠モバイル]
 ---
 
 はじめまして～。ひろちょんです。いま春休みなのですが、ほんと生活習慣の乱れがすーごいです。(笑)
@@ -25,7 +26,7 @@ category: smartphone-game
 
 実際に、というか、リリース初日からプレイして、結構楽しませていただいているひろが解説いたします！！
 
-## 黒い砂漠ってどんなゲーム？
+<h2 id="h-jump1">黒い砂漠ってどんなゲーム？</h2>
 
 ### ジャンルでいうとMMORPG！
 
@@ -102,7 +103,8 @@ RPGといえば、ドラクエだとか、FFだとか、思い浮かぶと思い
 
 ってこで……
 
-## 次回から黒い砂漠ぱーと1始まります！笑
+<h2 id="h-jump2">次回から黒い砂漠ぱーと1始まります！笑</h2>
+
 ![ikomachan](./komakoma-min.jpeg)
 
 記事が出来上がったら、リンクを貼っておきます(^o^)／
