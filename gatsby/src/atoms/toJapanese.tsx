@@ -3,8 +3,9 @@ const toJapanese = (key: string) => {
     "programming": "プログラミング",
     "smartphone-game": "スマホゲーム",
     "python": "Python",
-    "Hello": "はろ〜",
-    "World": "わーるど",
+    "student": "学生",
+    "life": "生活",
+    "black-desert-mobile": "黒い砂漠Mobile"
   }
 
   return RenameMap[key]
