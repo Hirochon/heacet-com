@@ -5,7 +5,7 @@ description: 【C言語講座】プログラミングはまず何をやればい
 thumbnail: blog/c-course1/s6.jpeg
 tags: [c-lang]
 category: programming
-keywords: [c言語,プログラミング]
+keywords: [c言語,プログラミング,visualstudio]
 ---
 
 ひろちょんです！
