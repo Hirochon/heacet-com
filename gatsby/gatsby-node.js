@@ -99,7 +99,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const categoryList = resultBlog.data.allMarkdownRemark.group
   const tagList = tagGroup.data.allMarkdownRemark.group
 
-  const postsPerPage = 2
+  const postsPerPage = 5
   const numPages = Math.ceil(postsBlog.length / postsPerPage)
 
   if (postsBlog.length > 0) {
