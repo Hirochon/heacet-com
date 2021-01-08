@@ -7,6 +7,7 @@ const toJapanese = (key: string) => {
     "life": "生活",
     "black-desert-mobile": "黒い砂漠Mobile",
     "c-lang": "C言語",
+    "django": "Django",
   }
 
   return RenameMap[key]
