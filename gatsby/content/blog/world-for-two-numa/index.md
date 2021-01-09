@@ -186,7 +186,7 @@ keywords: [world for two,攻略,dna,沼]
 
 <h2 id="h-jump2">沼地の2列目</h2>
 
-<strong>沼地</strong>の２列目になります。（オレン字のリンクを押すとそこまで飛びます。）
+<strong>沼地</strong>の２列目になります。
 
 <a href="#h-jump1"><u>1列目はこちら</u></a>
 
@@ -283,7 +283,7 @@ keywords: [world for two,攻略,dna,沼]
 
 <h2 id="h-jump3">沼地の3列目</h2>
 
-<strong>沼地</strong>の３列目になります。（オレン字のリンクを押すとそこまで飛びます。）
+<strong>沼地</strong>の３列目になります。
 
 <a href="#h-jump2"><u>2列目はこちら</u></a>
 <ol>

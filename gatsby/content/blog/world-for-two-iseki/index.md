@@ -13,9 +13,9 @@ keywords: [world for two,dna,遺跡,攻略]
 
 **【World for Two】**の**DNA(遺伝子)の組み合わせ**を、**攻略**が難しいという方に向けてまとめました！
 
-この記事は遺跡についてです。どうぞ参考にしてください。※ネタバレ注意
+この記事は遺跡についてです。どうぞ参考にしてください。
 
-目次です（オレン字のリンクを押すとそこまで飛びます。）
+目次です
 
 <ol>
 	<li><a href="#h-jump1"><strong>遺跡の1列目</strong></a></li>
@@ -26,7 +26,7 @@ keywords: [world for two,dna,遺跡,攻略]
 
 <h2 id="h-jump1">遺跡の1列目</h2>
 
-<strong>遺跡</strong>の１列目になります。（オレン字のリンクを押すとそこまで飛びます。）
+<strong>遺跡</strong>の１列目になります。
 
 <a href="#h-jump2"><u>2列目はこちら</u></a>
 
@@ -152,7 +152,7 @@ keywords: [world for two,dna,遺跡,攻略]
 
 <h2 id="h-jump2">遺跡の2列目</h2>
 
-<strong>遺跡</strong>の２列目になります。（オレン字のリンクを押すとそこまで飛びます。）
+<strong>遺跡</strong>の２列目になります。
 
 <a href="#h-jump1"><u>1列目はこちら</u></a>
 
@@ -254,7 +254,7 @@ keywords: [world for two,dna,遺跡,攻略]
 
 <h2 id="h-jump3">遺跡の3列目</h2>
 
-<strong>遺跡</strong>の３列目になります。（オレン字のリンクを押すとそこまで飛びます。）
+<strong>遺跡</strong>の３列目になります。
 
 <a href="#h-jump2"><u>2列目はこちら</u></a>
 
