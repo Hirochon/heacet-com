@@ -3348,10 +3348,19 @@ type SeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<(
       & { readonly social: Maybe<Pick<Social, 'twitter'>> }
     )> }> };
 
-type Page404QueryVariables = Exact<{ [key: string]: never; }>;
+type BlogIndexQueryVariables = Exact<{
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+}>;
 
 
-type Page404Query = { readonly siteLogo: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixedFragment> }> }>, readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+type BlogIndexQuery = { readonly siteLogo: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixedFragment> }> }>, readonly defaultThumbnail: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<(
+      Pick<MarkdownRemark, 'excerpt'>
+      & { readonly fields: Maybe<Pick<Fields, 'slug'>>, readonly frontmatter: Maybe<(
+        Pick<Frontmatter, 'date' | 'title' | 'description' | 'category' | 'tags'>
+        & { readonly thumbnail: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
+      )> }
+    )>, readonly pageInfo: Pick<PageInfo, 'currentPage' | 'hasNextPage' | 'hasPreviousPage' | 'pageCount'> } };
 
 type BlogIndexCategoryQueryVariables = Exact<{
   limit: Scalars['Int'];
@@ -3368,34 +3377,10 @@ type BlogIndexCategoryQuery = { readonly siteLogo: Maybe<{ readonly childImageSh
       )> }
     )>, readonly pageInfo: Pick<PageInfo, 'currentPage' | 'hasNextPage' | 'hasPreviousPage' | 'pageCount'>, readonly group: ReadonlyArray<Pick<MarkdownRemarkGroupConnection, 'fieldValue'>> } };
 
-type BlogIndexQueryVariables = Exact<{
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-}>;
+type Page404QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type BlogIndexQuery = { readonly siteLogo: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixedFragment> }> }>, readonly defaultThumbnail: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<(
-      Pick<MarkdownRemark, 'excerpt'>
-      & { readonly fields: Maybe<Pick<Fields, 'slug'>>, readonly frontmatter: Maybe<(
-        Pick<Frontmatter, 'date' | 'title' | 'description' | 'category' | 'tags'>
-        & { readonly thumbnail: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
-      )> }
-    )>, readonly pageInfo: Pick<PageInfo, 'currentPage' | 'hasNextPage' | 'hasPreviousPage' | 'pageCount'> } };
-
-type BlogPostBySlugQueryVariables = Exact<{
-  id: Scalars['String'];
-  previousPostId: Maybe<Scalars['String']>;
-  nextPostId: Maybe<Scalars['String']>;
-}>;
-
-
-type BlogPostBySlugQuery = { readonly siteLogo: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixedFragment> }> }>, readonly defaultThumbnail: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly markdownRemark: Maybe<(
-    Pick<MarkdownRemark, 'id' | 'excerpt' | 'html'>
-    & { readonly frontmatter: Maybe<(
-      Pick<Frontmatter, 'title' | 'date' | 'description' | 'keywords' | 'tags' | 'category'>
-      & { readonly thumbnail: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
-    )> }
-  )>, readonly previous: Maybe<{ readonly fields: Maybe<Pick<Fields, 'slug'>>, readonly frontmatter: Maybe<Pick<Frontmatter, 'title'>> }>, readonly next: Maybe<{ readonly fields: Maybe<Pick<Fields, 'slug'>>, readonly frontmatter: Maybe<Pick<Frontmatter, 'title'>> }> };
+type Page404Query = { readonly siteLogo: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixedFragment> }> }>, readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
 type BlogIndexTagQueryVariables = Exact<{
   limit: Scalars['Int'];
@@ -3411,6 +3396,21 @@ type BlogIndexTagQuery = { readonly siteLogo: Maybe<{ readonly childImageSharp: 
         & { readonly thumbnail: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
       )> }
     )>, readonly pageInfo: Pick<PageInfo, 'currentPage' | 'hasNextPage' | 'hasPreviousPage' | 'pageCount'>, readonly group: ReadonlyArray<Pick<MarkdownRemarkGroupConnection, 'fieldValue'>> } };
+
+type BlogPostBySlugQueryVariables = Exact<{
+  id: Scalars['String'];
+  previousPostId: Maybe<Scalars['String']>;
+  nextPostId: Maybe<Scalars['String']>;
+}>;
+
+
+type BlogPostBySlugQuery = { readonly siteLogo: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixedFragment> }> }>, readonly defaultThumbnail: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly markdownRemark: Maybe<(
+    Pick<MarkdownRemark, 'id' | 'excerpt' | 'html'>
+    & { readonly frontmatter: Maybe<(
+      Pick<Frontmatter, 'title' | 'date' | 'description' | 'keywords' | 'tags' | 'category'>
+      & { readonly thumbnail: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
+    )> }
+  )>, readonly previous: Maybe<{ readonly fields: Maybe<Pick<Fields, 'slug'>>, readonly frontmatter: Maybe<Pick<Frontmatter, 'title'>> }>, readonly next: Maybe<{ readonly fields: Maybe<Pick<Fields, 'slug'>>, readonly frontmatter: Maybe<Pick<Frontmatter, 'title'>> }> };
 
 type FixedPostBySlugQueryVariables = Exact<{
   id: Scalars['String'];

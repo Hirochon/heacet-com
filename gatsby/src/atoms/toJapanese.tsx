@@ -14,6 +14,7 @@ const toJapanese = (key: string) => {
     "kaggle": "Kaggle",
     "hinatazaka46": "日向坂46",
     "dq-walk": "ドラクエウォーク",
+    "pokemon-masters": "ポケモンマスターズ",
   }
 
   return RenameMap[key]
