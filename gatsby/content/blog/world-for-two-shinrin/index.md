@@ -250,6 +250,6 @@ keywords: [world for two,dna,森林,攻略]
 <a href="/world-for-two-sakyu/">＞＞＞<u>『World for Two アプリ攻略』全DNAの組み合わせ～砂丘～</u></a>
 
 遺跡のDNA組み合わせ一覧は↓のリンクから<br />
-<a href="/world-for-two-iseki/">＞＞＞<u>【World for Two攻略】DNAの組み合わせ一覧～遺跡～</u></a>。
+<a href="/world-for-two-iseki/">＞＞＞<u>【World for Two攻略】DNAの組み合わせ一覧～遺跡～</u></a>
 
 最後までご覧いただきありがとうございました！気になる点などございましたら、お気軽に[お問い合わせフォーム](./contact-form/)にてお問い合わせくださいm(__)m
