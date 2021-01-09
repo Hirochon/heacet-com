@@ -59,7 +59,7 @@ const Bio = () => {
           </div>
         </p>
       )}
-      <Link to="/my-profile">» プロフィール詳細はコチラ</Link>
+      <Link to="/about-me">» プロフィール詳細はコチラ</Link>
       <br/>
       <br/>
       <Link to="/contact-form">» お問い合わせはコチラ</Link>
