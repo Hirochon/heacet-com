@@ -1,7 +1,7 @@
 ---
 title: 【World for Two攻略】DNAの組み合わせ一覧～沼地～
-date: "2019-11-16T08:04:00Z"
-lastModified: "2019-05-31T21:09:00Z"
+date: "2019-05-31T21:09:00Z"
+lastModified: "2019-11-16T08:04:00Z"
 description: 【World for Two】を攻略する際にDNAの組み合わせで詰まっている方いませんか？今回の記事で沼地の生物のDNAの組み合わせ、進化前後についてまとめました。『世界観がとても良いので、ストーリー途中でやめるのは勿体ない！』どうぞご覧ください。
 thumbnail: blog/world-for-two-numa/numathum-min.jpeg
 tags: [world-for-two]
