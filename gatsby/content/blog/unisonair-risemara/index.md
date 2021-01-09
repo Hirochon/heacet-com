@@ -4,7 +4,7 @@ date: "2019-08-17T19:32:00Z"
 lastModified: "2019-09-24T21:09:00Z"
 description: ユニゾンエアーがリリースされましたね！最速のリセマラの手順についてまとめました。チュートリアルをスキップする方法があることを知っていましたか？実はあるんです！他にもガチャの引く方法なども載せています。どうぞご覧ください。
 thumbnail: blog/unisonair-risemara/samunekana-1.jpeg
-tags: [unison-air]
+tags: [unison-air,hinatazaka46]
 category: smartphone-game
 keywords: [ユニゾンエアー,リセマラ]
 ---

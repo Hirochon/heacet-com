@@ -4,8 +4,8 @@ date: "2019-11-06T22:29:00Z"
 lastModified: "2019-11-16T22:40:00Z"
 description: Djangoにてフォームをついてプログラムと一緒に解説しました。クラスを使ってのフォーム作成も順序だてて説明しております。実際にフォームを作成したときの動画も作ったので、そちらと一緒に勉強していただけたらなと思います！！
 thumbnail: blog/django-4/dai-bai-i1.jpeg
-tags: [django]
-category: programming
+tags: [django,python]
+category: web-development
 keywords: [django,フォーム,クラス]
 ---
 

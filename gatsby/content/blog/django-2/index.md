@@ -4,8 +4,8 @@ date: "2019-10-19T15:57:00Z"
 lastModified: "2019-11-06T22:40:00Z"
 description: Djangoで恐らく最初に疑問点を持つであろう『views.py』と『urls.py』について、簡単な役割を図を使って説明しました！プロジェクトとアプリケーションの関係についてもまとめています。どうぞご覧ください。
 thumbnail: blog/django-2/Django-1.png
-tags: [django]
-category: programming
+tags: [django,python]
+category: web-development
 keywords: [django,views.py,urls.py]
 ---
 

@@ -4,8 +4,8 @@ date: "2019-10-19T11:16:00Z"
 lastModified: "2020-03-27T22:40:00Z"
 description: DjangoというPythonで最も使われていると噂のフレームワークを使って、初心者がプロジェクト作成からローカルサーバを起動させるまでまとめました。
 thumbnail: blog/django-1/Django.png
-tags: [django]
-category: programming
+tags: [django,python]
+category: web-development
 keywords: [django,ローカルサーバー,初心者]
 ---
 

@@ -2,7 +2,7 @@
 title: 【World for Two 考察】色違いの生物がいる！？理由は…
 date: "2019-08-17T19:32:00Z"
 description: World for twoにて色違いの生物が出現しているだって！？いざ探検して、色違いの紹介と考察をまとめました。するとWorld for Twoゲーム内での意外なことに気づけました。どうぞご覧ください。
-thumbnail: blog/world-for-two-sakyu/saru-samune-768x431.jpeg
+thumbnail: blog/world-for-two-irochigai/saru-samune-768x431.jpeg
 tags: [world-for-two]
 category: smartphone-game
 keywords: [world for two,色違い,考察]

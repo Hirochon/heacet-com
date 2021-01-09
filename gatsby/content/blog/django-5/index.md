@@ -4,8 +4,8 @@ date: "2019-11-16T08:04:00Z"
 lastModified: "2019-11-22T22:40:00Z"
 description: Djangoにてデータベース、テーブル、レコード、モデル、モデルのインスタンスなどなど、様々な用語が出てくると思います。今回はこれらの用語について図を用いて解説しました。どうぞご覧ください。
 thumbnail: blog/django-5/samy.jpeg
-tags: [django]
-category: programming
+tags: [django,python]
+category: web-development
 keywords: [django,データベース,モデル,レコード]
 ---
 

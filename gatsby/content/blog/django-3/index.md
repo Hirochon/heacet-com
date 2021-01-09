@@ -4,8 +4,8 @@ date: "2019-10-22T19:12:00Z"
 lastModified: "2019-11-16T22:40:00Z"
 description: Djangoのテンプレートって色んな所と絡んでて難しいですよね…。今回はそんなテンプレートについて１から分かりやすくサンプルコード付きで説明しました！またテンプレートタグについても書いております。どうぞご覧ください。
 thumbnail: blog/django-3/Django-2.png
-tags: [django]
-category: programming
+tags: [django,python]
+category: web-development
 keywords: [django,テンプレート,テンプレートタグ]
 ---
 
