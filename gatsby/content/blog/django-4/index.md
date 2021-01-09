@@ -428,6 +428,10 @@ urlpatterns = [
 
 『**まだまだ余裕がアルヨ～**』という方は`views.py`での関数をクラス化して、`__init__`,`GET`,`POST`をそれぞれ定義して、`urls.py`を編集したりできるので、ググってみてください～。
 
+↓次の記事ではDjangoで扱うDBやモデル、レコードについて書きました↓
+
+[【Django】データベースを解説！モデル？レコード？《Day5》](/django-5/)
+
 もっと自分で『**Djangoを学んでいきたい！**』という方は僕も使っている↓コチラの本がオススメです。
 
 [Python Django 超入門](https://af.moshimo.com/af/c/click?a_id=1597531&p_id=170&pc_id=185&pl_id=27060&r_v=&s_v=&url=https%3A%2F%2Fwww.amazon.co.jp%2FPython-Django-%25E8%25B6%2585%25E5%2585%25A5%25E9%2596%2580-%25E6%258E%258C%25E7%2594%25B0%25E6%25B4%25A5%25E8%2580%25B6%25E4%25B9%2583%2Fdp%2F4798054488)
