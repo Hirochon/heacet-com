@@ -13,6 +13,7 @@ const toJapanese = (key: string) => {
     "data-analysis": "データ分析",
     "kaggle": "Kaggle",
     "hinatazaka46": "日向坂46",
+    "dq-walk": "ドラクエウォーク",
   }
 
   return RenameMap[key]
