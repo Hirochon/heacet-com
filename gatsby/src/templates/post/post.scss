@@ -125,5 +125,24 @@
         box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
       }
     }
+
+    .blog-flag {
+      h2 {
+        padding: 20px 20px;
+        border-left: 9px solid $main-color;
+        background-color: $white-ground;
+      }
+
+      h3 {
+        padding-left: 15px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid $main-color;
+      }
+
+      h4 {
+        padding-left: 10px;
+        border-left: 7px solid $main-color
+      }
+    }
   }
 }

@@ -32,87 +32,89 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({ data
           itemScope
           itemType="http://schema.org/Article"
         >
-          <header>
-            <div className="content-header">
-              <h1 itemProp="headline">{post!.frontmatter?.title}</h1>
-              <div className="header-description">
-                <p>{post!.frontmatter?.date}</p>
-                <div className="header-link">
-                  <div className="header-category">
-                    <div className="icon">
-                      <FontAwesomeIcon icon={faObjectGroup} size="1x" />
+          <div className="blog-flag">
+            <header>
+              <div className="content-header">
+                <h1 itemProp="headline">{post!.frontmatter?.title}</h1>
+                <div className="header-description">
+                  <p>{post!.frontmatter?.date}</p>
+                  <div className="header-link">
+                    <div className="header-category">
+                      <div className="icon">
+                        <FontAwesomeIcon icon={faObjectGroup} size="1x" />
+                      </div>
+                      <div className="slug-list">
+                        {post!.frontmatter?.category ? 
+                          <Link to={`/category/${post!.frontmatter?.category!}`}>{toJapanese(post!.frontmatter?.category!)}</Link>
+                          :
+                          <></>
+                        }
+                      </div>
                     </div>
-                    <div className="slug-list">
-                      {post!.frontmatter?.category ? 
-                        <Link to={`/category/${post!.frontmatter?.category!}`}>{toJapanese(post!.frontmatter?.category!)}</Link>
-                        :
-                        <></>
-                      }
-                    </div>
-                  </div>
-                  <div className="header-tag">
-                    <div className="icon">
-                      <FontAwesomeIcon icon={faTags} size="1x" />
-                    </div>
-                    <div className="slug-list">
-                      {tags ?
-                        tags.map((tag) => (
-                          <div key={tag}>
-                            <Link to={`/tag/${tag}`} key={tag}>{toJapanese(tag!)}</Link>
-                          </div>
-                        ))
-                        :
-                        <></>
-                      }
+                    <div className="header-tag">
+                      <div className="icon">
+                        <FontAwesomeIcon icon={faTags} size="1x" />
+                      </div>
+                      <div className="slug-list">
+                        {tags ?
+                          tags.map((tag) => (
+                            <div key={tag}>
+                              <Link to={`/tag/${tag}`} key={tag}>{toJapanese(tag!)}</Link>
+                            </div>
+                          ))
+                          :
+                          <></>
+                        }
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            {post!.frontmatter?.thumbnail ? 
-              <Image
-                fluid={post!.frontmatter?.thumbnail!.childImageSharp?.fluid!}
-                alt={`${post!.frontmatter?.title!}-thumbnail`}
-                className="posted-thumbnail"
-              />
-              :
-              <Image
-                fluid={defaultThumbnail}
-                alt={`default-thumbnail`}
-                className="posted-thumbnail"
-              />
-            }
-          </header>
-          <section
-            dangerouslySetInnerHTML={{ __html: post!.html! }}
-            itemProp="articleBody"
-          />
-          <nav className="blog-post-nav">
-            <ul
-              style={{
-                display: `flex`,
-                flexWrap: `wrap`,
-                justifyContent: `space-between`,
-                listStyle: `none`,
-                padding: 0,
-              }}
-            >
-              <li>
-                {previous && (
-                  <Link to={previous.fields?.slug!} rel="prev">
-                    ← {previous.frontmatter?.title}
-                  </Link>
-                )}
-              </li>
-              <li>
-                {next && (
-                  <Link to={next.fields?.slug!} rel="next">
-                    {next.frontmatter?.title} →
-                  </Link>
-                )}
-              </li>
-            </ul>
-          </nav>
+              {post!.frontmatter?.thumbnail ? 
+                <Image
+                  fluid={post!.frontmatter?.thumbnail!.childImageSharp?.fluid!}
+                  alt={`${post!.frontmatter?.title!}-thumbnail`}
+                  className="posted-thumbnail"
+                />
+                :
+                <Image
+                  fluid={defaultThumbnail}
+                  alt={`default-thumbnail`}
+                  className="posted-thumbnail"
+                />
+              }
+            </header>
+            <section
+              dangerouslySetInnerHTML={{ __html: post!.html! }}
+              itemProp="articleBody"
+            />
+            <nav className="blog-post-nav">
+              <ul
+                style={{
+                  display: `flex`,
+                  flexWrap: `wrap`,
+                  justifyContent: `space-between`,
+                  listStyle: `none`,
+                  padding: 0,
+                }}
+              >
+                <li>
+                  {previous && (
+                    <Link to={previous.fields?.slug!} rel="prev">
+                      ← {previous.frontmatter?.title}
+                    </Link>
+                  )}
+                </li>
+                <li>
+                  {next && (
+                    <Link to={next.fields?.slug!} rel="next">
+                      {next.frontmatter?.title} →
+                    </Link>
+                  )}
+                </li>
+              </ul>
+            </nav>
+          </div>
         </article>
         <Bio />
       </div>
