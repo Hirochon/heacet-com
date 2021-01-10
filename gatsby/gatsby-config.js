@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `heacet.netlify.com`,
+    title: `heacet.com`,
     author: {
       name: `ひろち | hirochi`,
       summary: `現在はサービス開発やデータサイエンスなどをしております！`,
     },
     description: `サービス開発、データサイエンス、趣味などを使ったクリエイティブなコンテンツが見れます。このサイトが人生を変えるキッカケの一つになれたら、めっちゃ喜びます。`,
-    siteUrl: `https://heacet.netlify.app/`,
+    siteUrl: `https://heacet.com/`,
     social: {
       twitter: `heacet43`,
     },
@@ -68,13 +68,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `heacet.netlify.com`,
+        name: `heacet.com`,
         short_name: `heacet`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/favicon.jpeg`,
       },
     },
     `gatsby-plugin-react-helmet`,
