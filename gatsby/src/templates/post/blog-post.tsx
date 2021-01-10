@@ -89,15 +89,7 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({ data
               itemProp="articleBody"
             />
             <nav className="blog-post-nav">
-              <ul
-                style={{
-                  display: `flex`,
-                  flexWrap: `wrap`,
-                  justifyContent: `space-between`,
-                  listStyle: `none`,
-                  padding: 0,
-                }}
-              >
+              <ul>
                 <li>
                   {previous && (
                     <Link to={previous.fields?.slug!} rel="prev">
@@ -105,7 +97,7 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({ data
                     </Link>
                   )}
                 </li>
-                <li>
+                <li id="next">
                   {next && (
                     <Link to={next.fields?.slug!} rel="next">
                       {next.frontmatter?.title} →

@@ -63,6 +63,9 @@ const Bio = () => {
       <br/>
       <br/>
       <Link to="/contact-form">» お問い合わせはコチラ</Link>
+      <br/>
+      <br/>
+      <Link to="/privacy-policy">» プライバシーポリシー</Link>
     </div>
   )
 }

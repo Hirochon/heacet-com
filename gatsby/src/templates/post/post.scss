@@ -33,13 +33,14 @@
         margin: 10px 0;
 
         h1 {
-          margin: 0;
+          margin: 0 0 15px 0;
         }
 
         .header-description {
           display: flex;
           flex-direction: row;
           line-height: 23px;
+          margin-bottom: 10px;
 
           @include mq(mm) {
             flex-direction: column;
@@ -123,6 +124,23 @@
       button.btn--shadow {
         -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
         box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+      }
+    }
+
+    .blog-post-nav {
+      ul {
+        // display: flex;
+        // justify-content: space-between;
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin-bottom: 20px;
+
+          &#next {
+            text-align: right;
+          }
+        }
       }
     }
 

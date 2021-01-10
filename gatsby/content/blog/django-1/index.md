@@ -122,7 +122,7 @@ Quit the server with CTRL-BREAK.
 
 **ローカルサーバ**の起動に成功すれば、↑このような画面が出て来ます。
 
-ブラウザにて『http://localhost:8000/』にアクセスして、↓の画面が出てきたら成功です！
+ブラウザにて[http://localhost:8000/](http://localhost:8000/)にアクセスして、↓の画面が出てきたら成功です！
 
 ![success](./success.jpeg)
 
