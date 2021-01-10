@@ -4,7 +4,8 @@ import './header.scss';
 import Image from "gatsby-image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faTwitterSquare } from "@fortawesome/free-brands-svg-icons";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faLaptop, faMobileAlt } from "@fortawesome/free-solid-svg-icons";
+import { faWindowRestore, faHandshake, faChartBar } from "@fortawesome/free-regular-svg-icons";
 
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -41,33 +42,83 @@ const Header: FC<Props> = ({isRootPath, title, siteLogo}) => {
     setState({ ...state, [anchor]: open });
   };
 
+  const snsMenuDictList = [
+    {
+      "key": "twitter-btn",
+      "link": "https://twitter.com/heacet43",
+      "icon": faTwitterSquare,
+      "primary": "Twitter",
+    },
+    {
+      "key": "github-btn",
+      "link": "https://github.com/Hirochon",
+      "icon": faGithub,
+      "primary": "GitHub",
+    },
+  ]
+
+  const categoryMenuDictList = [
+    {
+      "key": "samrtphone-game-btn",
+      "link": "/category/smartphone-game/",
+      "icon": faMobileAlt,
+      "primary": "スマホゲーム",
+    },
+    {
+      "key": "programming-btn",
+      "link": "/category/programming/",
+      "icon": faLaptop,
+      "primary": "プログラミング",
+    },
+    {
+      "key": "web-development-btn",
+      "link": "/category/web-development/",
+      "icon": faWindowRestore,
+      "primary": "Web開発",
+    },
+    {
+      "key": "data-analysis-btn",
+      "link": "/category/data-analysis/",
+      "icon": faChartBar,
+      "primary": "データ分析",
+    },
+    {
+      "key": "life-btn",
+      "link": "/category/life/",
+      "icon": faHandshake,
+      "primary": "生活",
+    },
+  ]
+
   const list = (anchor: Anchor) => (
     <div
+      className="bar-btn-list"
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        <Link to="https://twitter.com/heacet43">
-          <ListItem button key="sns-icon">
-            <ListItemIcon><FontAwesomeIcon icon={faTwitterSquare} size="2x" /></ListItemIcon>
-            <ListItemText primary="Twitter" />
-          </ListItem>
-        </Link>
-        <Link to="https://github.com/Hirochon">
-          <ListItem button key="sns-icon">
-            <ListItemIcon><FontAwesomeIcon icon={faGithub} size="2x" /></ListItemIcon>
-            <ListItemText primary="GitHub" />
-          </ListItem>
-        </Link>
+        <Divider />
+        <p>カテゴリ一覧</p>
+        {categoryMenuDictList.map((categoryMenuDict) => (
+          <Link to={categoryMenuDict.link}>
+            <ListItem button key={categoryMenuDict.key}>
+              <ListItemIcon><FontAwesomeIcon icon={categoryMenuDict.icon} size="2x" /></ListItemIcon>
+              <ListItemText primary={categoryMenuDict.primary} />
+            </ListItem>
+          </Link>
+        ))}
       </List>
       <Divider />
+      <p>SNS一覧</p>
       <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
+        {snsMenuDictList.map((snsMenuDict) => (
+          <Link to={snsMenuDict.link}>
+            <ListItem button key={snsMenuDict.key}>
+              <ListItemIcon><FontAwesomeIcon icon={snsMenuDict.icon} size="2x" /></ListItemIcon>
+              <ListItemText primary={snsMenuDict.primary} />
+            </ListItem>
+          </Link>
         ))}
       </List>
     </div>
