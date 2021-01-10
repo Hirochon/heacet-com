@@ -82,5 +82,6 @@ module.exports = {
     // `gatsby-plugin-offline`,
     `gatsby-plugin-typegen`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-twitter`,
   ],
 }

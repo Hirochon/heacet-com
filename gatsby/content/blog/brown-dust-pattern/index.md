@@ -43,10 +43,11 @@ Wave1の解説から始めさせていただきますね。
 	<li><a href="#h-jump16"><span style="color: #ff0000;">※</span>アンジェリカで敵の9を倒す</a></li>
 	<li><a href="#h-jump17">残った10,11を倒して、次ステージへ！</a></li>
 </ol>
+
 <span style="font-weight: bold;">重要そうなところに<span style="color: #ff0000;">※</span>を付けさせて頂きました。</span>
 決して『ア』から始まる場所を赤の※印をつけたわけではありません。笑
 
-詳しい説明をさせて頂きます。
+では詳しい説明をしていきます。
 
 <h3 id="h-jump11">セイルで挑発</h3>
 
@@ -228,7 +229,7 @@ Wave2の流れはこんな感じ。
 
 そしてそして～～
 
-![kattayoo-min](./kattayoo-min.jpg)
+![kattayoo-min](./kattayoo-min.jpeg)
 
 『やった！』
 
@@ -238,9 +239,7 @@ Wave2の流れはこんな感じ。
 
 <h3>総ダメージ量はなんと…</h3>
 
-<img src="https://heacet.com/wp-content/uploads/2019/08/damegeryo-pa-min.jpg" alt="archeyabba" width="670" height="376" class="alignnone size-full wp-image-2262" />
-
-![damegeryo-pa](./damegeryo-pa-min.jpg)
+![damegeryo-pa](./damegeryo-pa-min.jpeg)
 
 アーチェがものすごい事になってますね。笑
 
@@ -259,6 +258,8 @@ Wave2の流れはこんな感じ。
 一日につき協同討伐は4回挑戦することができるので、1日につき7200個の破片をゲットできる計算になります！
 
 <hr />
+
+<br />
 
 最後まで読んで頂きありがとうございました。
 
