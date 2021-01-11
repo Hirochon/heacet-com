@@ -152,7 +152,7 @@ const Header: FC<Props> = ({isRootPath, title, siteLogo}) => {
         </div>
         <div className="header-right">
           <div className="header-right-icon">
-            <a href="https://twitter/heacet43">
+            <a href="https://twitter.com/heacet43">
               <div className="font-size">
                 <FontAwesomeIcon icon={faTwitterSquare} size="2x" />
               </div>
