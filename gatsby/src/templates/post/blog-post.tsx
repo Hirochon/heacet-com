@@ -4,11 +4,11 @@ import Image from 'gatsby-image'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTags, faObjectGroup } from "@fortawesome/free-solid-svg-icons";
 
-import Bio from "../../organisms/Bio/bio"
 import Layout from "../../organisms/Layout/layout"
 import SEO from "../../organisms/Seo/seo"
 import toJapanese from "../../atoms/toJapanese"
 import "./post.scss"
+import Sidebar from '../../organisms/Sidebar';
 
 
 const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({ data, location }) => {
@@ -108,7 +108,7 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({ data
             </nav>
           </div>
         </article>
-        <Bio />
+        <Sidebar />
       </div>
     </Layout>
   )

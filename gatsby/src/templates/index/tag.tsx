@@ -4,12 +4,12 @@ import Image from "gatsby-image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTags, faObjectGroup } from "@fortawesome/free-solid-svg-icons";
 
-import Bio from "../../organisms/Bio/bio";
 import Layout from "../../organisms/Layout/layout";
 import SEO from "../../organisms/Seo/seo";
 import Pagination from "../../organisms/Pagination/pagination";
 import toJapanese from "../../atoms/toJapanese";
 import "./home.scss";
+import Sidebar from '../../organisms/Sidebar';
 
 
 const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexTagQuery>> = ({ data, location }) => {
@@ -24,7 +24,7 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexTagQuery>> = ({ data, locatio
     return (
       <Layout location={location} title={siteTitle} siteLogo={siteLogo}>
         <SEO title="All posts" />
-        <Bio />
+        <Sidebar />
         <p>
           No blog posts found.
         </p>
@@ -132,7 +132,7 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexTagQuery>> = ({ data, locatio
             categorySlug={`tag/${fieldValue}/`}
           />
         </div>
-        <Bio />
+        <Sidebar />
       </div>
     </Layout>
   )

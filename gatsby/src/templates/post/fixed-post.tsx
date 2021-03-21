@@ -2,11 +2,11 @@ import React, { FC } from 'react';
 import { graphql, PageProps } from "gatsby";
 import Image from 'gatsby-image';
 
-import Bio from "../../organisms/Bio/bio";
 import Layout from "../../organisms/Layout/layout";
 import SEO from "../../organisms/Seo/seo";
 import ContactForm from "./contact";
 import "./post.scss";
+import Sidebar from '../../organisms/Sidebar';
 
 
 const FixedPostTemplate: FC<PageProps<GatsbyTypes.FixedPostBySlugQuery>> = ({ data, location }) => {
@@ -55,7 +55,7 @@ const FixedPostTemplate: FC<PageProps<GatsbyTypes.FixedPostBySlugQuery>> = ({ da
             />)
           }
         </article>
-        <Bio />
+        <Sidebar />
       </div>
     </Layout>
   )
