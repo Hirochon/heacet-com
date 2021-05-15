@@ -1,14 +1,8 @@
 @import '../Styles/color.scss';
-@import '../Styles/media-query.scss';
 
 .bio {
   padding: 30px 20px;
   background-color: $white;
-
-  @include mq(lg) {
-    margin-left: 0;
-    margin: 20px 0;
-  }
 
   .bio-image {
     text-align: center;
