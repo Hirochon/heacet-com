@@ -83,7 +83,9 @@ const SEO: FC<Props> = ({ description, lang, meta, title, keywords }) => {
           content: metaDescription,
         },
       ].concat(meta!)}
-    />
+    >
+      <script data-ad-client="ca-pub-5398116960197196" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </Helmet>
   )
 }
 
