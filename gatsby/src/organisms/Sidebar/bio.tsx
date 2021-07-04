@@ -1,13 +1,12 @@
-import React from "react";
-import { useStaticQuery, graphql, Link } from "gatsby";
-import Image from "gatsby-image";
-import './bio.scss';
-
+import React from 'react'
+import { useStaticQuery, graphql, Link } from 'gatsby'
+import Image from 'gatsby-image'
+import './bio.scss'
 
 const Bio = () => {
   const data = useStaticQuery<GatsbyTypes.BioQueryQuery>(graphql`
     query BioQuery {
-      avatar: file(relativePath: {eq: "profile-picture.jpg"}){
+      avatar: file(relativePath: { eq: "profile-picture.jpg" }) {
         childImageSharp {
           fixed(width: 150, height: 150, quality: 90) {
             ...GatsbyImageSharpFixed
@@ -53,18 +52,16 @@ const Bio = () => {
           <div className="author-name">
             <strong>{author.name}</strong>
           </div>
-          <br/>
-          <div className="author-summary">
-            {author?.summary || null}
-          </div>
+          <br />
+          <div className="author-summary">{author?.summary || null}</div>
         </p>
       )}
       <Link to="/about-me">» プロフィール詳細はコチラ</Link>
-      <br/>
-      <br/>
+      <br />
+      <br />
       <Link to="/contact-form">» お問い合わせはコチラ</Link>
-      <br/>
-      <br/>
+      <br />
+      <br />
       <Link to="/privacy-policy">» プライバシーポリシー</Link>
     </div>
   )

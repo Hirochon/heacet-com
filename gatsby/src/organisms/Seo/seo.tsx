@@ -5,17 +5,17 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React, { FC } from "react";
-import PropTypes, { InferProps } from "prop-types";
-import { Helmet } from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
+import React, { FC } from 'react'
+import PropTypes, { InferProps } from 'prop-types'
+import { Helmet } from 'react-helmet'
+import { useStaticQuery, graphql } from 'gatsby'
 
 type Props = {
-  description?: string;
-  lang?: string;
-  meta?: HTMLMetaElement[];
-  title: string;
-  keywords?: GatsbyTypes.Frontmatter["keywords"];
+  description?: string
+  lang?: string
+  meta?: HTMLMetaElement[]
+  title: string
+  keywords?: GatsbyTypes.Frontmatter['keywords']
 }
 
 const SEO: FC<Props> = ({ description, lang, meta, title, keywords }) => {
@@ -51,8 +51,8 @@ const SEO: FC<Props> = ({ description, lang, meta, title, keywords }) => {
           content: metaDescription,
         },
         {
-          name: "keywords",
-          content: keywords?.join(","),
+          name: 'keywords',
+          content: keywords?.join(','),
         },
         {
           property: `og:title`,
@@ -84,7 +84,11 @@ const SEO: FC<Props> = ({ description, lang, meta, title, keywords }) => {
         },
       ].concat(meta!)}
     >
-      <script data-ad-client="ca-pub-5398116960197196" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <script
+        data-ad-client="ca-pub-5398116960197196"
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+      ></script>
     </Helmet>
   )
 }
