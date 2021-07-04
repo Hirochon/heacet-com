@@ -1,11 +1,12 @@
 version: '3.8'
 services:
   gatsby:
-    build: ./
+    image: node:12.17.0
     tty: true
     stdin_open: true
     volumes:
-      - ./:/heacet-com
+      - ./gatsby:/gatsby
+    working_dir: /gatsby
     environment:
       - NODE_ENV=development
     ports:
