@@ -1,18 +1,20 @@
-import React, { FC } from "react";
-import { Link, graphql, PageProps } from "gatsby";
-import Image from "gatsby-image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTags, faObjectGroup } from "@fortawesome/free-solid-svg-icons";
+import React, { FC } from 'react'
+import { Link, graphql, PageProps } from 'gatsby'
+import Image from 'gatsby-image'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTags, faObjectGroup } from '@fortawesome/free-solid-svg-icons'
 
-import Layout from "../../organisms/Layout/layout";
-import SEO from "../../organisms/Seo/seo";
-import Pagination from "../../organisms/Pagination/pagination";
-import toJapanese from "../../atoms/toJapanese";
-import "./home.scss";
-import Sidebar from '../../organisms/Sidebar';
+import Layout from '../../organisms/Layout/layout'
+import SEO from '../../organisms/Seo/seo'
+import Pagination from '../../organisms/Pagination/pagination'
+import toJapanese from '../../atoms/toJapanese'
+import './home.scss'
+import Sidebar from '../../organisms/Sidebar'
 
-
-const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({ data, location }) => {
+const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
+  data,
+  location,
+}) => {
   const siteTitle = data.site?.siteMetadata?.title!
   const posts = data.allMarkdownRemark.nodes
   const siteLogo = data.siteLogo
@@ -24,9 +26,7 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({ data, location }
       <Layout location={location} title={siteTitle} siteLogo={siteLogo}>
         <SEO title="All posts" />
         <Sidebar />
-        <p>
-          No blog posts found.
-        </p>
+        <p>No blog posts found.</p>
       </Layout>
     )
   }
@@ -54,19 +54,27 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({ data, location }
                             <span itemProp="headline">{title}</span>
                           </Link>
                         </h2>
-                        <div className="header-description">  
+                        <div className="header-description">
                           <p>{post.frontmatter!.date}</p>
                           <div className="header-link">
                             <div className="header-category">
                               <div className="icon">
-                                <FontAwesomeIcon icon={faObjectGroup} size="1x" />
+                                <FontAwesomeIcon
+                                  icon={faObjectGroup}
+                                  size="1x"
+                                />
                               </div>
                               <div className="slug-list">
-                                {post!.frontmatter?.category ? 
-                                  <Link to={`/category/${post!.frontmatter?.category!}`}>{toJapanese(post!.frontmatter?.category!)}</Link>
-                                  :
+                                {post!.frontmatter?.category ? (
+                                  <Link
+                                    to={`/category/${post!.frontmatter
+                                      ?.category!}`}
+                                  >
+                                    {toJapanese(post!.frontmatter?.category!)}
+                                  </Link>
+                                ) : (
                                   <></>
-                                }
+                                )}
                               </div>
                             </div>
                             <div className="header-tag">
@@ -74,48 +82,56 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({ data, location }
                                 <FontAwesomeIcon icon={faTags} size="1x" />
                               </div>
                               <div className="slug-list">
-                                {tags ?
+                                {tags ? (
                                   tags.map((tag) => (
                                     <div key={tag}>
-                                      <Link to={`/tag/${tag}`} key={tag}>{toJapanese(tag!)}</Link>
+                                      <Link to={`/tag/${tag}`} key={tag}>
+                                        {toJapanese(tag!)}
+                                      </Link>
                                     </div>
                                   ))
-                                  :
+                                ) : (
                                   <></>
-                                }
+                                )}
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <br/>
+                      <br />
                       <Link to={post.fields!.slug!} itemProp="url">
                         <div className="card-image">
-                          {post.frontmatter?.thumbnail ? 
+                          {post.frontmatter?.thumbnail ? (
                             <Image
-                              fluid={post.frontmatter?.thumbnail!.childImageSharp?.fluid!}
+                              fluid={
+                                post.frontmatter?.thumbnail!.childImageSharp
+                                  ?.fluid!
+                              }
                               alt={`${title}-thumbnail`}
                               className="posted-thumbnail"
                             />
-                            :
+                          ) : (
                             <Image
                               fluid={defaultThumbnail}
                               alt={`default-thumbnail`}
                               className="posted-thumbnail"
                             />
-                          }
+                          )}
                         </div>
                       </Link>
                     </header>
                     <section className="card-description">
                       <p
                         dangerouslySetInnerHTML={{
-                          __html: post.frontmatter!.description || post.excerpt!,
+                          __html:
+                            post.frontmatter!.description || post.excerpt!,
                         }}
                         itemProp="description"
                       />
                       <div className="read-more">
-                        <Link to={post.fields!.slug!} itemProp="url">続きを見る</Link>
+                        <Link to={post.fields!.slug!} itemProp="url">
+                          続きを見る
+                        </Link>
                       </div>
                     </section>
                   </article>
@@ -123,7 +139,7 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({ data, location }
               )
             })}
           </ol>
-          <Pagination 
+          <Pagination
             currentPage={pageInfo.currentPage}
             hasNextPage={pageInfo.hasNextPage}
             hasPreviousPage={pageInfo.hasPreviousPage}
@@ -139,10 +155,7 @@ const BlogIndex: FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({ data, location }
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query BlogIndex(
-      $limit: Int!
-      $skip: Int!
-    ) {
+  query BlogIndex($limit: Int!, $skip: Int!) {
     siteLogo: file(relativePath: { eq: "heacet.com-logo.png" }) {
       childImageSharp {
         fixed(height: 32, quality: 90) {
@@ -150,7 +163,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    defaultThumbnail: file(relativePath: { eq: "default-thumbnail.jpg"}) {
+    defaultThumbnail: file(relativePath: { eq: "default-thumbnail.jpg" }) {
       childImageSharp {
         fluid(maxHeight: 300, maxWidth: 750) {
           ...GatsbyImageSharpFluid
@@ -163,9 +176,9 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC },
-      filter: {frontmatter: {isFixed: {nin: true}}},
-      limit: $limit,
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { isFixed: { nin: true } } }
+      limit: $limit
       skip: $skip
     ) {
       nodes {

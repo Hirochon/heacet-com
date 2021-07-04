@@ -1,15 +1,17 @@
-import React, { FC } from 'react';
-import { graphql, PageProps } from "gatsby";
-import Image from 'gatsby-image';
+import React, { FC } from 'react'
+import { graphql, PageProps } from 'gatsby'
+import Image from 'gatsby-image'
 
-import Layout from "../../organisms/Layout/layout";
-import SEO from "../../organisms/Seo/seo";
-import ContactForm from "./contact";
-import "./post.scss";
-import Sidebar from '../../organisms/Sidebar';
+import Layout from '../../organisms/Layout/layout'
+import SEO from '../../organisms/Seo/seo'
+import ContactForm from './contact'
+import './post.scss'
+import Sidebar from '../../organisms/Sidebar'
 
-
-const FixedPostTemplate: FC<PageProps<GatsbyTypes.FixedPostBySlugQuery>> = ({ data, location }) => {
+const FixedPostTemplate: FC<PageProps<GatsbyTypes.FixedPostBySlugQuery>> = ({
+  data,
+  location,
+}) => {
   const post = data.markdownRemark
   const siteTitle = data.site?.siteMetadata?.title!
   const siteLogo = data.siteLogo
@@ -31,29 +33,31 @@ const FixedPostTemplate: FC<PageProps<GatsbyTypes.FixedPostBySlugQuery>> = ({ da
           <header>
             <h1 itemProp="headline">{post!.frontmatter?.title}</h1>
             <p>{post!.frontmatter?.date}</p>
-            {post!.frontmatter?.thumbnail ? 
+            {post!.frontmatter?.thumbnail ? (
               <Image
                 fluid={post!.frontmatter?.thumbnail!.childImageSharp?.fluid!}
                 alt={`${post!.frontmatter?.title!}-thumbnail`}
                 className="posted-thumbnail"
               />
-              :
+            ) : (
               <></>
-            }
+            )}
           </header>
-          {!!keywords ? 
-            (keywords![0] === "contactForm" ? 
-              (<ContactForm />) :
-              (<section
+          {!!keywords ? (
+            keywords![0] === 'contactForm' ? (
+              <ContactForm />
+            ) : (
+              <section
                 dangerouslySetInnerHTML={{ __html: post!.html! }}
                 itemProp="articleBody"
-              />)
-            ) :
-            (<section
+              />
+            )
+          ) : (
+            <section
               dangerouslySetInnerHTML={{ __html: post!.html! }}
               itemProp="articleBody"
-            />)
-          }
+            />
+          )}
         </article>
         <Sidebar />
       </div>
@@ -64,9 +68,7 @@ const FixedPostTemplate: FC<PageProps<GatsbyTypes.FixedPostBySlugQuery>> = ({ da
 export default FixedPostTemplate
 
 export const pageQuery = graphql`
-  query FixedPostBySlug(
-    $id: String!
-  ) {
+  query FixedPostBySlug($id: String!) {
     siteLogo: file(absolutePath: { regex: "/heacet.com-logo.png/" }) {
       childImageSharp {
         fixed(height: 32, quality: 95) {

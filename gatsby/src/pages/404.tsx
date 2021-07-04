@@ -1,10 +1,13 @@
-import React, { FC } from "react";
-import { graphql, PageProps } from "gatsby";
+import React, { FC } from 'react'
+import { graphql, PageProps } from 'gatsby'
 
-import Layout from "../organisms/Layout/layout";
-import SEO from "../organisms/Seo/seo";
+import Layout from '../organisms/Layout/layout'
+import SEO from '../organisms/Seo/seo'
 
-const NotFoundPage: FC<PageProps<GatsbyTypes.Page404Query>> = ({ data, location }) => {
+const NotFoundPage: FC<PageProps<GatsbyTypes.Page404Query>> = ({
+  data,
+  location,
+}) => {
   const siteTitle = data.site!.siteMetadata!.title!
   const siteLogo = data.siteLogo
 

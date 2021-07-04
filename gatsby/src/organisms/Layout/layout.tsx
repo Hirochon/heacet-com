@@ -1,14 +1,13 @@
-import React, { FC } from "react";
-import { WindowLocation } from "@reach/router";
-import "./layout.scss";
-import Header from "../Header/header";
-import Footer from "../Footer/footer";
-
+import React, { FC } from 'react'
+import { WindowLocation } from '@reach/router'
+import './layout.scss'
+import Header from '../Header/header'
+import Footer from '../Footer/footer'
 
 type Props = {
   title: string
   location: WindowLocation<unknown>
-  siteLogo: GatsbyTypes.BlogIndexQuery["siteLogo"]
+  siteLogo: GatsbyTypes.BlogIndexQuery['siteLogo']
 }
 
 const Layout: FC<Props> = ({ location, title, siteLogo, children }) => {
