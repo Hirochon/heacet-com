@@ -83,7 +83,7 @@ const SEO: FC<Props> = ({ description, lang, meta, title, keywords }) => {
           content: metaDescription,
         },
       ].concat(meta!)}
-    />
+    ></Helmet>
   )
 }
 
