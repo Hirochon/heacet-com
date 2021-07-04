@@ -48,13 +48,13 @@ const Bio = () => {
         )}
       </div>
       {author?.name && (
-        <p>
+        <div className="author-profile">
           <div className="author-name">
             <strong>{author.name}</strong>
           </div>
           <br />
           <div className="author-summary">{author?.summary || null}</div>
-        </p>
+        </div>
       )}
       <Link to="/about-me">» プロフィール詳細はコチラ</Link>
       <br />

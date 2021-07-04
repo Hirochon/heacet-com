@@ -108,8 +108,8 @@ const Header: FC<Props> = ({ isRootPath, title, siteLogo }) => {
         <Divider />
         <p>カテゴリ一覧</p>
         {categoryMenuDictList.map((categoryMenuDict) => (
-          <Link to={categoryMenuDict.link}>
-            <ListItem button key={categoryMenuDict.key}>
+          <Link to={categoryMenuDict.link} key={categoryMenuDict.key}>
+            <ListItem button>
               <ListItemIcon>
                 <FontAwesomeIcon icon={categoryMenuDict.icon} size="2x" />
               </ListItemIcon>
@@ -122,8 +122,8 @@ const Header: FC<Props> = ({ isRootPath, title, siteLogo }) => {
       <p>SNS一覧</p>
       <List>
         {snsMenuDictList.map((snsMenuDict) => (
-          <Link to={snsMenuDict.link}>
-            <ListItem button key={snsMenuDict.key}>
+          <Link to={snsMenuDict.link} key={snsMenuDict.key}>
+            <ListItem button>
               <ListItemIcon>
                 <FontAwesomeIcon icon={snsMenuDict.icon} size="2x" />
               </ListItemIcon>

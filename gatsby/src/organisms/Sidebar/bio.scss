@@ -9,14 +9,22 @@
     margin-bottom: 10px;
   }
 
-  .author-name {
-    font-size: 18px;
+  .author-profile {
+    text-align: center;
+    padding: 5px 0;
+
+    .author-name {
+      font-size: 18px;
+      padding-bottom: 10px;
+    }
+
+    .author-summary {
+      color: $gray;
+      font-size: 14px;
+      padding-bottom: 20px;
+    }
   }
 
-  .author-summary {
-    color: $gray;
-    font-size: 14px;
-  }
 
   p {
     text-align: center;
