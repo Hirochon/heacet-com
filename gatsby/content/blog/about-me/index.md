@@ -9,14 +9,14 @@ category: life
 
 こんちは〜、**ひろち**です。
 
-ここでは、かる～く私のことを紹介してます！
+ようこそ[heacet.com](/)へ！このサイトはGatsby.jsによって作成致しました！
 
 ## 簡単な自己紹介
 
 ![ひろち](../../assets/profile-picture.jpg)
 
 **ひろち**
-「はじめまして！ひろちと申します。現在大学 4 回生でプラズマ理工学研究グループに所属しています(\*´∀ ｀)」
+「現在はWeb系自社開発企業でアプリケーションを開発しております(\*´∀ ｀)」
 
 ## ひろちの経歴紹介
 
@@ -38,15 +38,17 @@ category: life
    - 2020 年 1 月〜4 月: [Shappar](https://github.com/Hirochon/Shappar)を友達と共同で開発
 7. [東京大学松尾研 GCI2020Summer](https://gci.t.u-tokyo.ac.jp/gci-2020-summer/)にて**優秀生に選ばれる**(2020 年 5 月〜2020 年 8 月)
 8. 内定先でアルバイト(2020 年 9 月〜2021 年 3 月) : React×GraphQL×Go
-9. Web 系自社開発企業でエンジニアしてます(2021 年 4 月〜)
+9. 機械学習を用いたプラズマ乱流再構成に関する研究(2020 年 4 月〜2021 年 3 月)
+10. Web 系自社開発企業でエンジニアしてます(2021 年 4 月〜)
 
 ## ひろちのスキル
 
 <ul>
 	<li>プログラミング: C言語／Python／TypeScript／Go</li>
-	<li>フレームワーク／ライブラリ: Django／Django REST Framework／Numpy／Pandas／Scikit-learn／Pytorch／TensorFrow(Keras)／React／Apollo／Gorm／Gin／gqlgen</li>
-	<li>インフラ・DevOps: AWS(ECSなど)／GCP(Firebaseなど)／Docker／CircleCI</li>
-	<li><span style="color: #ff0000;">現在勉強中: データサイエンス／React／Go／GraphQL</span></li>
+	<li>フレームワーク／ライブラリ: Django／Django REST Framework／Numpy／Pandas／Scikit-learn／Pytorch／TensorFrow(Keras)／React／Apollo／Gorm／Gin／gqlgen／ent／go-swagger</li>
+	<li>インフラ・DevOps: AWS(ECSなど)／GCP(Firebaseなど)／Docker</li>
+	<li>CI・CD: CircleCI／GitHub Actions</li>
+	<li><span style="color: #ff0000;">主にやってること: データサイエンス／Go／TypeScript(React)</span></li>
 	<li>スポーツ歴: 水泳／サッカー／フットサル</li>
 	<li>趣味: スノボ／ランニング／ラーメン(塩が一番)／チリツモ</li>
 	<li>特技: パントマイム／ルービックキューブ／ムーンウォーク</li>
